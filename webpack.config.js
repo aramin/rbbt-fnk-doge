@@ -33,11 +33,11 @@ if (TARGET == 'build') {
     // Export ContentSlider as Library
     output: {
       path: "dist",
-      filename: "ContentSlider.js",
+      filename: "ContentSlider.min.js",
       // export itself to a global var
-      libraryTarget: "var",
+      libraryTarget: "commonjs2"
       // name of the global var: "ContentSlider"
-      library: "ContentSlider"
+      //library: "ContentSlider"
     },
     plugins: [
       new webpack.DefinePlugin({
