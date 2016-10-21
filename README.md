@@ -1,4 +1,4 @@
-# welt-content-slider
+# doge
 
 <img src="https://gist.githubusercontent.com/aweiher/fac10de0ab63536766a68eb8ae06a14b/raw/a107cc637afe64396fe9dc751e028aa36ec113b3/logo.png" alt="doge" title="wow such logo" width="200">
 
@@ -97,6 +97,13 @@ yarn
 
 # local link
 npm link
+
+
+# go to your target project
+cd $target-project
+
+# local link doge
+npm link weltn24-doge
 
 ```
 
