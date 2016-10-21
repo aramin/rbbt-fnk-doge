@@ -15,9 +15,7 @@ type ContentSliderOptions = {
   overlay: QuerySelector,
 
   // bemBlockName: set the block-part of the css-class name
-  bemBlockName?: string,
-  // bemBlockName: set the block-part of the css-class name
-  swiperBemBlockName?: string
+  bemBlockName?: string
 }
 
 type ContentSliderCSSClasses = {
