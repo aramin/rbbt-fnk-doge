@@ -19,22 +19,22 @@ type ContentSliderOptions = {
 }
 
 type ContentSliderCSSClasses = {
-  overlay: ClassName,
-  overlayModVisible: ClassName,
-  nav: ClassName,
-  navPosition: ClassName,
-  description: ClassName,
-  descriptionModVisible: ClassName,
-  elementContainer: ClassName,
-  wrapper: ClassName,
-  element: ClassName,
+  overlay?: ClassName,
+  overlayModVisible?: ClassName,
+  nav?: ClassName,
+  navPosition?: ClassName,
+  description?: ClassName,
+  descriptionModVisible?: ClassName,
+  elementContainer?: ClassName,
+  wrapper?: ClassName,
+  element?: ClassName,
 
   // icons
-  icon: ClassName,
-  toggleDescriptionIcon: ClassName,
-  prevIcon: ClassName,
-  nextIcon: ClassName,
-  closeIcon: ClassName,
+  icon?: ClassName,
+  toggleDescriptionIcon?: ClassName,
+  prevIcon?: ClassName,
+  nextIcon?: ClassName,
+  closeIcon?: ClassName,
 }
 
 let defaultOptions: ContentSliderOptions = {
