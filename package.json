@@ -1,5 +1,5 @@
 {
-  "name": "welt-content-slider",
+  "name": "@welt/doge",
   "version": "0.1.0",
   "description": "A Content Slider micro library",
   "main": "src/Slider.js",
