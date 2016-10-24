@@ -49,12 +49,15 @@ if (TARGET == 'build') {
   // Start the development mode (webpack-dev-server) and serve `dev/index.html`
   module.exports = merge(base, {
     entry: {
-      app: "./demo/app.js"
+      contentSlider: "./src/ContentSlider.js"
     },
     output: {
         path: "dist",
-        filename: "demo.js"
+        filename: "ContentSlider.dev.js",
+        libraryTarget: "var",
+        library: "ContentSliderModule"
     },
+    devtool: "#inline-source-map",
     devServer: {
       contentBase: 'dist/'
     }
