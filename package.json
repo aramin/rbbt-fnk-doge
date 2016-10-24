@@ -5,8 +5,11 @@
   "main": "dist/ContentSlider.min.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "test": "ava"
+    "build": "BABEL_ENV=production webpack -p",
+    "test": "npm run lint && npm run coverage",
+    "lint": "eslint src/ContentSlider.js",
+    "coverage": "nyc ava",
+    "coverage-html-report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-syntax-flow": "^6.13.0",
     "babel-plugin-tcomb": "^0.3.19",
@@ -24,7 +28,10 @@
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-preset-es2015": "^6.16.0",
     "browser-env": "^2.0.12",
+    "eslint": "^3.8.1",
+    "eslint-plugin-flowtype": "^2.23.0",
     "flow-type": "^1.0.1",
+    "nyc": "^8.3.2",
     "sinon": "^1.17.6",
     "tcomb": "^3.2.15",
     "webpack": "^1.13.2",
@@ -50,6 +57,17 @@
       "tcomb",
       "transform-flow-strip-types",
       "transform-async-to-generator"
+    ],
+    "ignore": [],
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
+  },
+  "nyc": {
+    "include": [
+      "src/ContentSlider.js"
     ]
   },
   "dependencies": {
