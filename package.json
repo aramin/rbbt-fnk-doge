@@ -7,6 +7,7 @@
     "start": "webpack-dev-server",
     "build": "BABEL_ENV=production webpack -p",
     "test": "npm run lint && npm run coverage",
+    "test-dev": "ava --watch",
     "lint": "eslint src/ContentSlider.js",
     "coverage": "nyc ava",
     "coverage-html-report": "nyc report --reporter=html"

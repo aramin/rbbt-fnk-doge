@@ -10,6 +10,26 @@ Dependency:
 
 - Swiper: http://idangero.us/swiper/
 
+# TOC
+
+
+- [Usage](#usage)
+    - [Options (required):](#options-required)
+    - [CSS Classes (optional):](#css-classes-optional)
+    - [Swiper Options:](#swiper-options)
+- [Development](#development)
+    - [Devstack](#devstack)
+    - [Intellij](#intellij)
+    - [Dev-Mode](#dev-mode)
+    - [local development](#local-development)
+    - [lint](#lint)
+    - [test](#test)
+    - [Bundle](#bundle)
+    - [Release](#release)
+- [etc ..](#etc-)
+    - [yarn](#yarn-install-a-package)
+
+
 ## Usage
 
 ```js
@@ -25,6 +45,9 @@ const contentSlider = new ContentSlider(<options>, <css-classes>, <swiper-option
 `content` | QuerySelector (string) | the selector of the swipeable content elements
 `overlay` | QuerySelector (string) | the selector of the overlay
 `bemBlockName` | string | set the block-part of the bem-style css-class name
+`swiperBemBlockName` | string | set the block-part of the css-class name for swiper-options
+`extractSliderElement` | function | function which returns element to slide
+`extractCaption` | function | function which returns the description of the slide
 
 ### CSS Classes (optional):
 
@@ -36,13 +59,13 @@ With this parameter you can overwrite the css classes. They are automatic genera
 `overlayModVisible` | ClassName (string) | modifier which indicates if the overlay is visible
 `nav` | ClassName (string) | the navigaten bar element
 `navPosition` | ClassName (string) | the position indicator
-`description` | ClassName (string) | the description of the current content element
-`descriptionModVisible` | ClassName (string) | modifier which indicates if the description is visible
+`caption` | ClassName (string) | the caption of the current content element
+`captionModVisible` | ClassName (string) | modifier which indicates if the caption is visible
 `elementContainer` | ClassName (string) | the container for the swipeable content elements
 `wrapper` | ClassName (string) | wrapper around the elements, which will be x/y transformed on swipe
 `element` | ClassName (string) | the content element
 `icon` | ClassName (string) | icon element
-`toggleDescriptionIcon` | ClassName (string) | icon to toggle visibility of the description  
+`toggleCaptionIcon` | ClassName (string) | icon to toggle visibility of the caption  
 `prevIcon` | ClassName (string) | icon to swipe to previous element
 `nextIcon` | ClassName (string) | icon to swipe to next element
 `closeIcon` | ClassName (string) | icon to close the overlay
@@ -107,6 +130,11 @@ npm link weltn24-doge
 
 ```
 
+### lint
+
+```
+npm run lint
+```
 
 ### test
 
@@ -115,14 +143,28 @@ To run the tests:
 ```
 npm test
 ```
-(this will start the ava test-runner)
+(this will lint the code, start the ava test-runner, and show code coverage)
 
 To start the test with file-watcher:
 
 ```
-npm test -- --watch
+npm run test-dev
 ```
 
+### coverage
+
+To only run the code coverage (run `npm test` otherwise)
+
+```
+npm run coverage
+```
+
+To create the HTML Report: 
+
+```
+npm run coverage-html-report
+open coverage/index.html
+```
 
 ### Bundle
 
@@ -139,7 +181,7 @@ TODO
 
 ## etc ..
 
-### yarn: install a package
+### yarn
 
 ```
 yarn add <package>
