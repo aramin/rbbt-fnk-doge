@@ -9,7 +9,9 @@ test('is not a single', t => Fixture("./fixtures/simple.html", (document) => {
   let
     options = {
       content: '.test__image',
-      overlay: '.overlay'
+      overlay: '.overlay',
+      extractSliderElement: function() {},
+      extractCaption: function() {}
     },
     instance_one = new ContentSlider(options),
     instance_two = new ContentSlider(options);

@@ -11,10 +11,14 @@ test.beforeEach('setup fixture', t => Fixture("./fixtures/simple.html", (documen
 test.beforeEach('setup slider', t => {
   t.context.slider = new ContentSlider({
     content: '.content-slider__image',
-    overlay: '.overlay'
+    overlay: '.overlay',
+    extractSliderElement: function() {
+      return document.createElement("div");
+    },
+    extractCaption: function() {}
   });
 });
-
+ 
 test("click on the image opens the overlay", t => {
   const {document, slider} = t.context;
 
