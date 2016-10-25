@@ -10,7 +10,8 @@
     "test-dev": "ava --watch",
     "lint": "eslint src/ContentSlider.js",
     "coverage": "nyc ava",
-    "coverage-html-report": "nyc report --reporter=html"
+    "coverage-html-report": "nyc report --reporter=html",
+    "release": "release-it"
   },
   "files": [
     "dist/ContentSlider.min.js"
