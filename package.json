@@ -1,6 +1,6 @@
 {
   "name": "weltn24-doge",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Content Slider micro library",
   "main": "dist/ContentSlider.min.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "eslint-plugin-flowtype": "^2.23.0",
     "flow-type": "^1.0.1",
     "nyc": "^8.3.2",
+    "release-it": "^2.4.3",
     "sinon": "^1.17.6",
     "tcomb": "^3.2.15",
     "webpack": "^1.13.2",
