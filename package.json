@@ -1,6 +1,6 @@
 {
   "name": "weltn24-doge",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Content Slider micro library",
   "main": "dist/ContentSlider.min.js",
   "scripts": {
