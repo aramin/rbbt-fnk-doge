@@ -8,6 +8,8 @@ Primary used for Images and responsive Picture-Elements - but not limited to it.
 
 [![Build Status](https://travis-ci.org/WeltN24/doge.svg?branch=master)](https://travis-ci.org/WeltN24/doge)
 
+[![NPM](https://nodei.co/npm/weltn24-doge.png)](https://nodei.co/npm/weltn24-doge/)
+
 # TOC
 
 - [Install](#install)
