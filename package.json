@@ -12,6 +12,9 @@
     "coverage": "nyc ava",
     "coverage-html-report": "nyc report --reporter=html"
   },
+  "files": [
+    "dist/ContentSlider.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.dfl:defel/welt-content-slider.git"
