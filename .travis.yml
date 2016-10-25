@@ -15,5 +15,3 @@ cache:
   - $HOME/.yarn-cache
 install:
   - yarn
-after_success:
-  - npm run release

@@ -6,13 +6,12 @@ This is the Content-Slider of welt.de
 
 Primary used for Images and responsive Picture-Elements - but not limited to it.
 
-Dependency: 
-
-- Swiper: http://idangero.us/swiper/
+[![Build Status](https://travis-ci.org/WeltN24/doge.svg?branch=master)](https://travis-ci.org/WeltN24/doge)
 
 # TOC
 
-
+- [Install](#install)
+- [Dependency](#dependency)
 - [Usage](#usage)
     - [Options (required):](#options-required)
     - [CSS Classes (optional):](#css-classes-optional)
@@ -43,6 +42,10 @@ yarn add weltn24-doge
 ```
 npm install --save weltn24-doge
 ```
+
+# Dependency 
+
+- Swiper: http://idangero.us/swiper/
 
 # Usage
 
