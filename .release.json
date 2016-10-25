@@ -1,0 +1,8 @@
+{
+  "non-interactive": true,
+  "buildCommand": "npm run build",
+  "github": {
+    "release": true,
+    "releaseName": "Release %s"
+  }
+}
