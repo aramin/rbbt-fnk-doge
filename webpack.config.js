@@ -52,14 +52,14 @@ if (TARGET == 'build') {
       contentSlider: "./src/ContentSlider.js"
     },
     output: {
-        path: "dist",
+        path: "dev",
         filename: "ContentSlider.dev.js",
         libraryTarget: "var",
         library: "ContentSliderModule"
     },
     devtool: "#inline-source-map",
     devServer: {
-      contentBase: 'dist/'
+      contentBase: 'dev/'
     }
   });
 } else {
