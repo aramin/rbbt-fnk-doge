@@ -30,7 +30,21 @@ Dependency:
     - [yarn](#yarn-install-a-package)
 
 
-## Usage
+# Install
+
+## yarn
+
+```
+yarn add weltn24-doge
+```
+
+## npm
+
+```
+npm install --save weltn24-doge
+```
+
+# Usage
 
 ```js
 // initialize 
@@ -38,7 +52,7 @@ const contentSlider = new ContentSlider(<options>, <css-classes>, <swiper-option
 
 ```
 
-### Options (required):
+## Options (required):
 
 **Option** | Type | Description
 --- | --- | ---
@@ -49,7 +63,7 @@ const contentSlider = new ContentSlider(<options>, <css-classes>, <swiper-option
 `extractSliderElement` | function | function which returns element to slide
 `extractCaption` | function | function which returns the description of the slide
 
-### CSS Classes (optional):
+## CSS Classes (optional):
 
 With this parameter you can overwrite the css classes. They are automatic generated with the options-value `bemBlockName`.
 
@@ -71,26 +85,26 @@ With this parameter you can overwrite the css classes. They are automatic genera
 `closeIcon` | ClassName (string) | icon to close the overlay
 
 
-### Swiper Options:
+## Swiper Options:
 
 See [Swiper API Docs](http://idangero.us/swiper/api/).
 
 
-## Development
+# Development
 
-### Devstack 
+## Devstack 
 
 - [Flowtype](https://flowtype.org/) (with [tcomb](https://github.com/gcanti/tcomb) + [babel-plugin-transform-flow-strip-types](https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-flow-strip-types))
 - [webpack](https://github.com/webpack/webpack) (for webpack-dev-server & bundling)
 - [yarn](https://yarnpkg.com) + [npm](npmjs.com) ( for dependency management and application lifecycle)
 - [ava](https://github.com/avajs/ava) (test-runner)
 
-### Intellij
+## Intellij
 
 To active IDE support for webflow: **Language & Frameworks** -> **Javascript** -> **Javascript Language Support**: *Flow*
 
 
-### Dev-Mode
+## Dev-Mode
 
 To start the webpack-dev-server:
 
@@ -106,7 +120,7 @@ To access the server from network:
 npm start -- --host 0.0.0.0
 ```
 
-### local development
+## local development
 
 First: Make sure you yarn installed on your system (`brew install yarn`). 
 
@@ -130,13 +144,13 @@ npm link weltn24-doge
 
 ```
 
-### lint
+## lint
 
 ```
 npm run lint
 ```
 
-### test
+## test
 
 To run the tests:
 
@@ -151,7 +165,7 @@ To start the test with file-watcher:
 npm run test-dev
 ```
 
-### coverage
+## coverage
 
 To only run the code coverage (run `npm test` otherwise)
 
@@ -166,7 +180,7 @@ npm run coverage-html-report
 open coverage/index.html
 ```
 
-### Bundle
+## Bundle
 
 To bundle the library:
 
@@ -174,14 +188,17 @@ To bundle the library:
 npm run build
 ```
 
-### Release
+## Release
 
-TODO
+To automatic build, tag version, push github and publish to npm: 
 
+```
+./node_modules/.bin/release-it
+```
 
-## etc ..
+# etc ..
 
-### yarn
+## yarn
 
 ```
 yarn add <package>
