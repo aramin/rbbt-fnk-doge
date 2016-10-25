@@ -19,8 +19,8 @@
     "type": "git",
     "url": "git@github.dfl:defel/welt-content-slider.git"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "WeltN24 Dev",
+  "license": "MIT",
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-core": "^6.17.0",
