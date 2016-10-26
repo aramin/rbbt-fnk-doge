@@ -436,6 +436,7 @@ export default class ContentSlider {
       nav: generateClassNameMakro("nav"),
       navPosition: generateClassNameMakro("nav-position"),
       caption: generateClassNameMakro("caption"),
+      captionModVisible: generateClassNameMakro("caption", "is-visible"),
       elementContainer: generateClassNameMakro("element-container"),
       
       // icons
@@ -460,8 +461,8 @@ export default class ContentSlider {
       slidesPerView: 1,
 
       // set prev- and next buttons to buttons provided by content-slider
-      prevButton: this.cssClasses.prevIcon,
-      nextButton: this.cssClasses.nextIcon,
+      prevButton: `.${this.cssClasses.prevIcon}`,
+      nextButton: `.${this.cssClasses.nextIcon}`,
 
       // keyboardControl
       keyboardControl: true,
