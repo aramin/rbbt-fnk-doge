@@ -215,6 +215,11 @@ export default class ContentSlider {
       this.toggleCaption();
     });
 
+    this.elements.caption.addEventListener("transitionend", (ev) => {
+      if(!this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
+        this.elements.caption.style.display = "none";
+      }
+    });
 
     // key handlers
     document.addEventListener("keyup", (event) => {
@@ -544,7 +549,11 @@ export default class ContentSlider {
     if(this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
       this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
     } else {
-      this.elements.caption.classList.add(this.cssClasses.captionModVisible);
+      this.elements.caption.style.display = "block";
+      // animation must be started, _after_ display:block has been applied
+      window.setTimeout(() => {
+        this.elements.caption.classList.add(this.cssClasses.captionModVisible);
+      }, 0);
     }
   }
 }
