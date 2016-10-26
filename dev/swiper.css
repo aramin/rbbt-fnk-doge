@@ -18,7 +18,6 @@
 }
 
 .c-swiper__slide {
-    width: 100%;
     height: 100%;
     box-sizing: border-box;
     display: inline-block;
@@ -33,11 +32,11 @@
 }
 
 .c-swiper__slide-content {
+    display: flex;
     max-width: 100%;
     max-height: 100%;
-    object-fit: scale-down;
-    width: 100%;
     height: 100%;
+    flex-direction: column;
 }
 
 .c-swiper__container-no-flexbox .c-swiper__slide {
