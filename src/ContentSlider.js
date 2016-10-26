@@ -133,6 +133,11 @@ export default class ContentSlider {
   captions;
 
   /**
+   * scroll position
+   */
+  scrollPosition: Array;
+
+  /**
    * ContentSlider constructor
    *
    * @constructor
@@ -146,6 +151,7 @@ export default class ContentSlider {
       content: []
     };
     this.captions = {};
+    this.scrollPosition = [0, 0];
 
     // options
     this.options = merge(defaultOptions, options);
@@ -388,6 +394,21 @@ export default class ContentSlider {
     }
   }
 
+  /**
+   * save document scoll position
+   * @private
+   */
+  _saveScrollPosition() {
+    const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    this.scrollPosition = [scrollX, scrollY];
+  }
+
+  _restoreScrollPosition() {
+    var [scrollX, scrollY] = this.scrollPosition;
+    window.scrollTo(scrollX, scrollY);
+  }
+
   // ## Default Options
 
   /**
@@ -495,6 +516,7 @@ export default class ContentSlider {
   openOverlay() {
     // overlay must be visible, before swiper gets initialized
     this.elements.overlay.classList.add(this.cssClasses.overlayModVisible);
+    this._saveScrollPosition();
     ContentSlider._setDocumentScrollbar(false);
     this._initSwiper();
     this._recalculateSizes();
@@ -509,6 +531,7 @@ export default class ContentSlider {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
     ContentSlider._clearHashnav();
     ContentSlider._setDocumentScrollbar(true);
+    this._restoreScrollPosition();
   }
 
   /**
