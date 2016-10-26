@@ -7,6 +7,7 @@ This is the Content-Slider of welt.de
 Primary used for Images and responsive Picture-Elements - but not limited to it.
 
 [![Build Status](https://travis-ci.org/WeltN24/doge.svg?branch=master)](https://travis-ci.org/WeltN24/doge)
+[![Coverage Status](https://coveralls.io/repos/github/WeltN24/doge/badge.svg?branch=master)](https://coveralls.io/github/WeltN24/doge?branch=master)
 
 [![NPM](https://nodei.co/npm/weltn24-doge.png)](https://nodei.co/npm/weltn24-doge/)
 
