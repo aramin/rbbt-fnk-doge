@@ -15,3 +15,5 @@ cache:
   - $HOME/.yarn-cache
 install:
   - yarn
+after_success:
+    - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
