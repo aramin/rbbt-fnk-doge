@@ -35,9 +35,9 @@ if (TARGET == 'build') {
       path: "dist",
       filename: "ContentSlider.min.js",
       // export itself to a global var
-      libraryTarget: "commonjs2"
+      libraryTarget: "umd",
       // name of the global var: "ContentSlider"
-      //library: "ContentSlider"
+      library: "ContentSlider"
     },
     plugins: [
       new webpack.DefinePlugin({
