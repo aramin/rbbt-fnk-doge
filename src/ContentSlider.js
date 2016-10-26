@@ -233,7 +233,7 @@ export default class ContentSlider {
 
     this._updateNavPosition();
 
-    this.swiper.on("onSetTranslate", (swiper, foo) => {
+    this.swiper.on("onSetTranslate", (swiper) => {
       this._updateNavPosition();
       this._updateCaption(swiper.activeIndex);
     });
@@ -335,6 +335,21 @@ export default class ContentSlider {
   }
 
   /**
+   * recalculate sizes
+   *
+   * this is need, when the overlay is opened and the browser-window was resized before
+   *
+   * @private
+   */
+  _recalculateSizes() {
+    if(this.swiper) {
+      this.swiper.updateContainerSize();
+      this.swiper.updateSlidesSize();
+      this.swiper.slideTo(this.swiper.activeIndex);
+    }
+  }
+
+  /**
    * query the document for an element by className
    * @param {string} className
    * @returns {Element}
@@ -358,6 +373,19 @@ export default class ContentSlider {
    */
   static _clearHashnav() {
     window.location.hash = "";
+  }
+
+  /**
+   * set document scrollbar
+   * @param {boolean} enable
+   * @private
+   */
+  static _setDocumentScrollbar(enable: boolean) {
+    if(enable) {
+      document.documentElement.style.overflow = "auto";
+    } else {
+      document.documentElement.style.overflow = "hidden";
+    }
   }
 
   // ## Default Options
@@ -467,7 +495,9 @@ export default class ContentSlider {
   openOverlay() {
     // overlay must be visible, before swiper gets initialized
     this.elements.overlay.classList.add(this.cssClasses.overlayModVisible);
+    ContentSlider._setDocumentScrollbar(false);
     this._initSwiper();
+    this._recalculateSizes();
   }
 
   /**
@@ -478,6 +508,7 @@ export default class ContentSlider {
   closeOverlay() {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
     ContentSlider._clearHashnav();
+    ContentSlider._setDocumentScrollbar(true);
   }
 
   /**
