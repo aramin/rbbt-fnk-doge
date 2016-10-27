@@ -19,12 +19,13 @@ html {
 }
 
 .c-content-slider__wrapper {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .c-content-slider__element-container {
+    position: relative;
     display: block;
     flex-grow: 1;
     flex-shrink: 1;
@@ -97,6 +98,8 @@ html {
     border-left: 1px solid #edece8;
 
     font-size: calc(0.75em + 1vmin);
+
+    touch-action: manipulation
 }
 
 .c-content-slider__icon:active, .c-content-slider__toggle-caption-icon--is-active {
