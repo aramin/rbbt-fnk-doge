@@ -11,7 +11,10 @@ test('is not a single', t => Fixture("./fixtures/simple.html", (document) => {
       content: '.test__image',
       overlay: '.overlay',
       extractSliderElement: function() {},
-      extractCaption: function() {}
+      extractCaption: function() {},
+      extractHashnavToken: function(_, index) {
+        return index;
+      }
     },
     instance_one = new ContentSlider(options),
     instance_two = new ContentSlider(options);

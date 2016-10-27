@@ -15,7 +15,10 @@ test.beforeEach('setup slider', t => {
     extractSliderElement: function() {
       return document.createElement("div");
     },
-    extractCaption: function() {}
+    extractCaption: function() {},
+    extractHashnavToken: function(_, index) {
+      return index;
+    }
   });
 });
  
