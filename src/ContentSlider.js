@@ -330,7 +330,7 @@ export default class ContentSlider {
   _updateCaption(index: number) {
     // need to use innerHTML, as caption can contain HTML
     if(this.captions[index]) {
-      this.elements.caption.innerHTML = `<p>${this.captions[index]}</p>`;
+      this.elements.caption.innerHTML = this.captions[index];
     } else {
       this.elements.caption.innerHTML = "";
     }
