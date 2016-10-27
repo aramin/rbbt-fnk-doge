@@ -48,6 +48,7 @@ type ContentSliderOptions = {
  * @property {ClassName} element - [optional]
  * @property {ClassName} icon - [optional]
  * @property {ClassName} toggleCaptionIcon - [optional]
+ * @property {ClassName} toggleCaptionIconModActive - [optional]
  * @property {ClassName} prevIcon - [optional]
  * @property {ClassName} nextIcon - [optional]
  * @property {ClassName} closeIcon - [optional]
@@ -66,6 +67,7 @@ type ContentSliderCSSClasses = {
   // icons
   icon?: ClassName,
   toggleCaptionIcon?: ClassName,
+  toggleCaptionIconModActive?: ClassName,
   prevIcon?: ClassName,
   nextIcon?: ClassName,
   closeIcon?: ClassName,
@@ -91,6 +93,7 @@ export default class ContentSlider {
    * @property {Element} caption - the caption element defined by `cssClasses.caption`
    * @property {Element} elementsContainer - the elements container defined by `cssClasses.elementsContainer`
    * @property {Element} toggleCaptionIcon - the toggle caption icon defined by `cssClasses.toggleCaptionIcon`
+   * @property {Element} toggleCaptionIconModActive - indicates of the caption is displayed at the moment
    * @property {Element} closeIcon - the close icon defined by `cssClasses.closeIcon`
    * @property {Element} navPosition - the nav position element defined by `cssClasses.navPosition`
    */
@@ -100,6 +103,7 @@ export default class ContentSlider {
     caption: Element,
     elementsContainer: Element,
     toggleCaptionIcon: Element,
+    toggleCaptionIconModActive: Element,
     closeIcon: Element,
     navPosition: Element
   };
@@ -186,6 +190,7 @@ export default class ContentSlider {
     this.elements.caption = ContentSlider._queryByClassName(this.cssClasses.caption);
 
     this.elements.toggleCaptionIcon = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIcon);
+    this.elements.toggleCaptionIconModActive = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIconModActive);
     this.elements.closeIcon = ContentSlider._queryByClassName(this.cssClasses.closeIcon);
 
     this.elements.navPosition = ContentSlider._queryByClassName(this.cssClasses.navPosition);
@@ -447,6 +452,7 @@ export default class ContentSlider {
       // icons
       icon: generateClassNameMakro("icon"),
       toggleCaptionIcon: generateClassNameMakro("toggle-caption-icon"),
+      toggleCaptionIconModActive: generateClassNameMakro("toggle-caption-icon", "is-active"),
       prevIcon: generateClassNameMakro("prev-icon"),
       nextIcon: generateClassNameMakro("next-icon"),
       closeIcon: generateClassNameMakro("close-icon")
@@ -548,7 +554,10 @@ export default class ContentSlider {
   toggleCaption() {
     if(this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
       this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
+      this.elements.toggleCaptionIcon.classList.remove(this.cssClasses.toggleCaptionIconModActive);
     } else {
+      this.elements.toggleCaptionIcon.classList.add(this.cssClasses.toggleCaptionIconModActive);
+
       this.elements.caption.style.display = "block";
       // animation must be started, _after_ display:block has been applied
       window.setTimeout(() => {

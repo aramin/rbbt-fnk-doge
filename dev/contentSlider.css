@@ -99,7 +99,7 @@ html {
     font-size: calc(0.75em + 1vmin);
 }
 
-.c-content-slider__icon:hover {
+.c-content-slider__icon:active, .c-content-slider__toggle-caption-icon--is-active {
     background-color: #edece8;
 }
 
