@@ -21,8 +21,9 @@ type ClassName = string;
  * @property {QuerySelector} overlay - the selector of the overlay
  * @property {QuerySelector} bemBlockName - [optional] set the block-part of the css-class name
  * @property {QuerySelector} swiperBemBlockName - [optional] set the block-part of the css-class name for swiper-options
- * @property {QuerySelector} extractSliderContent - function which returns element to slide
- * @property {QuerySelector} extractCaption - function which returns the description of the slide
+ * @property {Function} extractSliderContent - function which returns element to slide
+ * @property {Function} extractCaption - function which returns the description of the slide
+ * @property {Function} extractHashnavToken - function which returns the hashnav token
  */
 type ContentSliderOptions = {
   content: QuerySelector,
@@ -30,7 +31,8 @@ type ContentSliderOptions = {
   bemBlockName?: string,
   swiperBemBlockName?: string,
   extractSliderElement: Function,
-  extractCaption: Function
+  extractCaption: Function,
+  extractHashnavToken: Function
 }
 
 /**
@@ -269,17 +271,15 @@ export default class ContentSlider {
     const swiperWrapperElement = ContentSlider._createSwiperElementByClassName(this.swiperOptions.wrapperClass);
 
     this.elements.content.forEach((elem, index) => {
-      const elemClone = elem.cloneNode(true);
-
       // extract slider element
-      elem = this.options.extractSliderElement(elemClone);
+      elem = this.options.extractSliderElement(elem.cloneNode(true));
       elem.classList.add("c-swiper__slide-content");
 
       // extract hashnav token
-      var hashNavToken = `s${index}`;
+      var hashNavToken = this.options.extractHashnavToken(elem.cloneNode(true), index);
 
       // extract description
-      this.captions[index] = this.options.extractCaption(elemClone);
+      this.captions[index] = this.options.extractCaption(elem.cloneNode(true));
 
       // append content element to wrapper element
       let swiperSlider = ContentSlider._createSwiperElementByClassName(this.swiperOptions.slideClass);
@@ -314,7 +314,7 @@ export default class ContentSlider {
    * @private
    */
   _showWhenLinked() {
-    if(window.location.hash && window.location.hash.match(/#s\d+/)) {
+    if(window.location.hash && window.location.hash.match(/#cs-/)) {
       this.openOverlay();
     }
   }

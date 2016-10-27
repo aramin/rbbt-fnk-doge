@@ -434,6 +434,25 @@
                 }
 
                 return caption;
+            },
+            extractHashnavToken: function(contentElement, index) {
+                var
+                    prefix = "cs-",
+                    fallback = prefix+index,
+                    imageElem = contentElement.querySelector("img");
+
+                if(!imageElem) {
+                    return fallback;
+                }
+
+                var src = imageElem.getAttribute("src"),
+                    lastSlashPos = src.lastIndexOf('/');
+
+                if(!lastSlashPos) {
+                    return fallback;
+                }
+
+                return prefix + src.substr(lastSlashPos + 1);
             }
         }, {
             // Doge CSS Classes

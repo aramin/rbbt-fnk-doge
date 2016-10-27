@@ -68,6 +68,7 @@ const contentSlider = new ContentSlider(<options>, <css-classes>, <swiper-option
 `swiperBemBlockName` | string | set the block-part of the css-class name for swiper-options
 `extractSliderElement` | function | function which returns element to slide
 `extractCaption` | function | function which returns the description of the slide
+`extractHashnavToken` | function | function which returns the hashnav token
 
 ## CSS Classes (optional):
 
