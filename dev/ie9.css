@@ -1,0 +1,14 @@
+
+.c-content-slider__caption {
+    display: block;
+    max-height: inherit;
+    position: fixed;
+    bottom: 50px;
+    z-index: 1;
+    background-color: white;
+}
+
+.c-content-slider__nav {
+    position: fixed;
+    bottom: 0;
+}
