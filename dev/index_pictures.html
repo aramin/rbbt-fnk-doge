@@ -519,6 +519,21 @@
             zoomContainerClass: 'c-swiper__zoom-container'
         });
 
+        contentSlider.on("open", function() {
+            console.info("ContentSlider: open");
+        });
+        contentSlider.on("next", function(index) {
+            console.info("ContentSlider: next", index);
+        });
+        contentSlider.on("prev", function(index) {
+            console.info("ContentSlider: prev", index);
+        });
+        contentSlider.on("close", function() {
+            console.info("ContentSlider: close");
+        });
+        contentSlider.on("caption_toggle", function(visible) {
+            console.info("ContentSlider: caption_toggle", visible);
+        });
 
         console.log('CONTENT SLIDER', contentSlider);
 

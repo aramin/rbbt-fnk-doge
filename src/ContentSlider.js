@@ -9,6 +9,7 @@
 
 import Swiper from "swiper";
 import merge from "lodash.merge";
+import EventEmitter from "eventemitter3";
 
 type QuerySelector = string;
 type ClassName = string;
@@ -74,6 +75,8 @@ type ContentSliderCSSClasses = {
   nextIcon?: ClassName,
   closeIcon?: ClassName,
 }
+
+type ContentSliderEvent = "open" | "close" | "caption_toggle" | "next" | "prev";
 
 /**
  * default options
@@ -144,6 +147,17 @@ export default class ContentSlider {
   scrollPosition: Array;
 
   /**
+   * event emitter
+   */
+  eventEmitter: EventEmitter;
+
+  /**
+   * event emitter active
+   * @type {boolean}
+   */
+  eventEmitterActive: boolean;
+
+  /**
    * ContentSlider constructor
    *
    * @constructor
@@ -158,6 +172,7 @@ export default class ContentSlider {
     };
     this.captions = {};
     this.scrollPosition = [0, 0];
+    this.eventEmitter = new EventEmitter();
 
     // options
     this.options = merge(defaultOptions, options);
@@ -172,8 +187,13 @@ export default class ContentSlider {
 
     // setup
     this._setupContent();
-    this._showWhenLinked();
     this._setupHandlers();
+
+    // show overlay when linked
+    // call this in the next tick, when the event loop ist empty and all event listeners are active
+    window.setTimeout( () => {
+      this._showWhenLinked();
+    }, 0);
   }
 
   // ## SETUP
@@ -254,6 +274,18 @@ export default class ContentSlider {
     this.swiper.on("onSetTranslate", (swiper) => {
       this._updateNavPosition();
       this._updateCaption(swiper.activeIndex);
+    });
+
+    this.swiper.on("onSlidePrevStart", swiper => {
+      if(this.eventEmitterActive) {
+        this.eventEmitter.emit("prev", swiper.activeIndex);
+      }
+    });
+
+    this.swiper.on("onSlideNextStart", swiper => {
+      if(this.eventEmitterActive) {
+        this.eventEmitter.emit("next", swiper.activeIndex);
+      }
     });
   }
 
@@ -532,6 +564,9 @@ export default class ContentSlider {
     ContentSlider._setDocumentScrollbar(false);
     this._initSwiper();
     this._recalculateSizes();
+
+    this.eventEmitterActive = true;
+    this.eventEmitter.emit("open");
   }
 
   /**
@@ -544,6 +579,10 @@ export default class ContentSlider {
     ContentSlider._clearHashnav();
     ContentSlider._setDocumentScrollbar(true);
     this._restoreScrollPosition();
+    if(this.eventEmitterActive) {
+      this.eventEmitter.emit("close");
+    }
+    this.eventEmitterActive = false;
   }
 
   /**
@@ -555,6 +594,9 @@ export default class ContentSlider {
     if(this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
       this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
       this.elements.toggleCaptionIcon.classList.remove(this.cssClasses.toggleCaptionIconModActive);
+      if(this.eventEmitterActive) {
+        this.eventEmitter.emit("caption_toggle", false);
+      }
     } else {
       if(this.swiper) {
         this._updateCaption(this.swiper.activeIndex);
@@ -566,6 +608,17 @@ export default class ContentSlider {
       window.setTimeout(() => {
         this.elements.caption.classList.add(this.cssClasses.captionModVisible);
       }, 0);
+
+      if(this.eventEmitterActive) {
+        this.eventEmitter.emit("caption_toggle", true);
+      }
     }
+  }
+
+  /**
+   * On Event
+   */
+  on(event: ContentSliderEvent, callback) {
+    this.eventEmitter.on(event, callback);
   }
 }
