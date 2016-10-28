@@ -270,16 +270,16 @@ export default class ContentSlider {
     // create swiper wrapper container
     const swiperWrapperElement = ContentSlider._createSwiperElementByClassName(this.swiperOptions.wrapperClass);
 
-    this.elements.content.forEach((elem, index) => {
+    this.elements.content.forEach((origElem, index) => {
       // extract slider element
-      elem = this.options.extractSliderElement(elem.cloneNode(true));
+      let elem = this.options.extractSliderElement(origElem.cloneNode(true));
       elem.classList.add("c-swiper__slide-content");
 
       // extract hashnav token
-      var hashNavToken = this.options.extractHashnavToken(elem.cloneNode(true), index);
+      var hashNavToken = this.options.extractHashnavToken(origElem.cloneNode(true), index);
 
       // extract description
-      this.captions[index] = this.options.extractCaption(elem.cloneNode(true));
+      this.captions[index] = this.options.extractCaption(origElem.cloneNode(true));
 
       // append content element to wrapper element
       let swiperSlider = ContentSlider._createSwiperElementByClassName(this.swiperOptions.slideClass);
@@ -556,6 +556,9 @@ export default class ContentSlider {
       this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
       this.elements.toggleCaptionIcon.classList.remove(this.cssClasses.toggleCaptionIconModActive);
     } else {
+      if(this.swiper) {
+        this._updateCaption(this.swiper.activeIndex);
+      }
       this.elements.toggleCaptionIcon.classList.add(this.cssClasses.toggleCaptionIconModActive);
 
       this.elements.caption.style.display = "block";
