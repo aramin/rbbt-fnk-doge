@@ -179,11 +179,21 @@ export default class ContentSlider {
 
     // css classes
     const defaultCssClasses = this._generateCssClassesForBlockName(this.options.bemBlockName);
-    this.cssClasses = cssClasses ? merge(defaultCssClasses, cssClasses) : defaultCssClasses;
+
+    if(cssClasses) {
+      this.cssClasses = merge(defaultCssClasses, cssClasses);
+    } else {
+      this.cssClasses = defaultCssClasses
+    }
 
     // swiper options
     let swiperDefaultOptions = this._generateSwiperDefaultOptionsForBlockName(this.options.swiperBemBlockName);
-    this.swiperOptions = swiperOptions ? merge(swiperDefaultOptions, swiperOptions) : swiperDefaultOptions;
+
+    if(swiperOptions) {
+      this.swiperOptions = merge(swiperDefaultOptions, swiperOptions);
+    } else {
+      this.swiperOptions = swiperDefaultOptions;
+    }
 
     // setup
     this._setupContent();

@@ -41,6 +41,40 @@ test("click on the close icon closes the overlay", t => {
   t.false(slider.elements.overlay.classList.contains("content-slider__overlay--is-visible"));
 });
 
+test.cb("[toggleCaption] click on caption icon shows the caption", t => {
+  const {document, slider} = t.context;
+
+  t.false(slider.elements.caption.classList.contains(slider.cssClasses.captionModVisible));
+  t.false(slider.elements.toggleCaptionIcon.classList.contains(slider.cssClasses.toggleCaptionIconModActive));
+
+  // open caption
+  slider.elements.toggleCaptionIcon.click();
+
+  // need async, as captionModVisible class is set with timeout
+  setTimeout(() => {
+    t.true(slider.elements.caption.classList.contains(slider.cssClasses.captionModVisible));
+    t.true(slider.elements.toggleCaptionIcon.classList.contains(slider.cssClasses.toggleCaptionIconModActive));
+
+    t.end();
+  }, 1);
+});
+
+test.cb("[toggleCaption] click on caption again hides the caption", t => {
+  const {document, slider} = t.context;
+
+  slider.toggleCaption();
+  setTimeout(() => {
+    slider.toggleCaption();
+
+    setTimeout(() => {
+      t.false(slider.elements.caption.classList.contains(slider.cssClasses.captionModVisible));
+      t.false(slider.elements.toggleCaptionIcon.classList.contains(slider.cssClasses.toggleCaptionIconModActive));
+
+      t.end();
+    }, 1);
+  }, 1);
+});
+
 test.skip("click on next changes the slider and update the nav position", t => {
   const {document, slider} = t.context;
 
