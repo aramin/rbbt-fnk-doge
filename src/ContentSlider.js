@@ -220,6 +220,7 @@ export default class ContentSlider {
     this.elements.overlay = document.querySelector(this.options.overlay);
     this.elements.elementsContainer = ContentSlider._queryByClassName(this.cssClasses.elementContainer);
     this.elements.caption = ContentSlider._queryByClassName(this.cssClasses.caption);
+    this.elements.caption.style.display = "none";
 
     this.elements.toggleCaptionIcon = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIcon);
     this.elements.toggleCaptionIconModActive = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIconModActive);
