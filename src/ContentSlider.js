@@ -202,6 +202,8 @@ export default class ContentSlider {
     window.setTimeout( () => {
       this._showWhenLinked();
     }, 0);
+
+    this.eventEmitter.emit("init");
   }
 
   // ## SETUP
