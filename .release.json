@@ -5,6 +5,7 @@
     "release": false
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "tag": "feature--overlay-simple"
   }
 }
