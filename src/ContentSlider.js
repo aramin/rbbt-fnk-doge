@@ -98,7 +98,6 @@ export default class ContentSlider {
    * @property {Element} caption - the caption element defined by `cssClasses.caption`
    * @property {Element} elementsContainer - the elements container defined by `cssClasses.elementsContainer`
    * @property {Element} toggleCaptionIcon - the toggle caption icon defined by `cssClasses.toggleCaptionIcon`
-   * @property {Element} toggleCaptionIconModActive - indicates of the caption is displayed at the moment
    * @property {Element} closeIcon - the close icon defined by `cssClasses.closeIcon`
    * @property {Element} navPosition - the nav position element defined by `cssClasses.navPosition`
    */
@@ -108,7 +107,6 @@ export default class ContentSlider {
     caption: Element,
     elementsContainer: Element,
     toggleCaptionIcon: Element,
-    toggleCaptionIconModActive: Element,
     closeIcon: Element,
     navPosition: Element
   };
@@ -223,7 +221,6 @@ export default class ContentSlider {
     this.elements.caption.style.display = "none";
 
     this.elements.toggleCaptionIcon = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIcon);
-    this.elements.toggleCaptionIconModActive = ContentSlider._queryByClassName(this.cssClasses.toggleCaptionIconModActive);
     this.elements.closeIcon = ContentSlider._queryByClassName(this.cssClasses.closeIcon);
 
     this.elements.navPosition = ContentSlider._queryByClassName(this.cssClasses.navPosition);
