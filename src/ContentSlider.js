@@ -204,10 +204,11 @@ export default class ContentSlider {
 
     // call this in the next tick, when the event loop ist empty and all event listeners are active
     window.setTimeout( () => {
-      // show overlay when linked
-      this._showWhenLinked();
       // send init event
       this.eventEmitter.emit("init");
+      
+      // show overlay when linked
+      this.onHistoryChange();
     }, 0);
   }
 
@@ -355,16 +356,6 @@ export default class ContentSlider {
   }
 
   // ## Utilities
-
-  /**
-   * show the overlay if the url contains a slide-hash (e.g. #s1)
-   * @private
-   */
-  _showWhenLinked() {
-    if(window.location.hash && window.location.hash.match(/#cs-/)) {
-      this.openOverlay();
-    }
-  }
 
   /**
    * update the caption text
@@ -636,5 +627,17 @@ export default class ContentSlider {
    */
   on(event: ContentSliderEvent, callback) {
     this.eventEmitter.on(event, callback);
+  }
+
+  /**
+   * show the overlay if the url contains a slide-hash (e.g. #s1)
+   * @private
+   */
+  onHistoryChange() {
+    if(window.location.hash && window.location.hash.match(/#cs-/)) {
+      this.openOverlay();
+    } else {
+      this.closeOverlay();
+    }
   }
 }
