@@ -76,7 +76,12 @@ type ContentSliderCSSClasses = {
   closeIcon?: ClassName,
 }
 
-type ContentSliderEvent = "open" | "close" | "caption_toggle" | "next" | "prev";
+type ContentSliderEvent = "open"
+  | "close"
+  | "caption_toggle"
+  | "next"
+  | "prev"
+  | "init";
 
 /**
  * default options
@@ -197,13 +202,13 @@ export default class ContentSlider {
     this._setupContent();
     this._setupHandlers();
 
-    // show overlay when linked
     // call this in the next tick, when the event loop ist empty and all event listeners are active
     window.setTimeout( () => {
+      // show overlay when linked
       this._showWhenLinked();
+      // send init event
+      this.eventEmitter.emit("init");
     }, 0);
-
-    this.eventEmitter.emit("init");
   }
 
   // ## SETUP
@@ -523,6 +528,7 @@ export default class ContentSlider {
       // hashnav
       hashnav: true,
       hashnavWatchState: true,
+      replaceState: true,
 
       // Swiper CSS Classes
       containerModifierClass: `${block}__container-`,

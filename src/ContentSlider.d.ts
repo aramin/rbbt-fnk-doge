@@ -2,7 +2,12 @@ export = ContentSlider;
 
 type QuerySelector = string;
 type ClassName = string;
-type ContentSliderEvent = "open" | "close" | "caption_toggle" | "next" | "prev";
+type ContentSliderEvent = "open"
+    | "close"
+    | "caption_toggle"
+    | "next"
+    | "prev"
+    | "init";
 
 declare class ContentSlider {
     constructor(options:ContentSlider.ContentSliderOptions,
