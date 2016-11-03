@@ -291,13 +291,13 @@ export default class ContentSlider {
       this._updateCaption(swiper.activeIndex);
     });
 
-    this.swiper.on("onSlidePrevStart", swiper => {
+    this.swiper.on("onSlidePrevEnd", swiper => {
       if(this.eventEmitterActive) {
         this.eventEmitter.emit("prev", swiper.activeIndex);
       }
     });
 
-    this.swiper.on("onSlideNextStart", swiper => {
+    this.swiper.on("onSlideNextEnd", swiper => {
       if(this.eventEmitterActive) {
         this.eventEmitter.emit("next", swiper.activeIndex);
       }
