@@ -10,46 +10,48 @@ type ContentSliderEvent = "open"
     | "init";
 
 declare class ContentSlider {
-    constructor(options:ContentSlider.ContentSliderOptions,
-                cssClasses?:ContentSlider.ContentSliderCSSClasses,
-                swiperOptions?:any);
+    constructor(options: ContentSlider.ContentSliderOptions,
+                cssClasses?: ContentSlider.ContentSliderCSSClasses,
+                swiperOptions?: any);
 
-    openOverlay():void;
+    openOverlay(): void;
 
-    closeOverlay():void;
+    closeOverlay(): void;
 
-    toggleCaption():void;
+    toggleCaption(): void;
 
-    on(event:ContentSliderEvent, callback:(...args:any[]) => void);
+    on(event:ContentSliderEvent, callback:(...args: any[]) => void);
+
+    onHistoryChange(): void;
 }
 
 declare namespace ContentSlider {
     export interface ContentSliderOptions {
-        content:QuerySelector;
-        overlay:QuerySelector;
-        bemBlockName?:string;
-        swiperBemBlockName?:string;
-        extractSliderElement:(contentElement:Element) => Element;
-        extractCaption:(contentElement:Element) => string;
-        extractHashnavToken:(contentElement:Element, index:number) => string;
+        content: QuerySelector;
+        overlay: QuerySelector;
+        bemBlockName?: string;
+        swiperBemBlockName?: string;
+        extractSliderElement:(contentElement: Element) => Element;
+        extractCaption:(contentElement: Element) => string;
+        extractHashnavToken:(contentElement: Element, index: number) => string;
     }
 
     export interface ContentSliderCSSClasses {
-        overlay?:ClassName;
-        overlayModVisible?:ClassName;
-        nav?:ClassName;
-        navPosition?:ClassName;
-        caption?:ClassName;
-        captionModVisible?:ClassName;
-        elementContainer?:ClassName;
-        wrapper?:ClassName;
-        element?:ClassName;
-        icon?:ClassName,
-        toggleCaptionIcon?:ClassName,
-        toggleCaptionIconModActive?:ClassName,
-        prevIcon?:ClassName,
-        nextIcon?:ClassName,
-        closeIcon?:ClassName,
+        overlay?: ClassName;
+        overlayModVisible?: ClassName;
+        nav?: ClassName;
+        navPosition?: ClassName;
+        caption?: ClassName;
+        captionModVisible?: ClassName;
+        elementContainer?: ClassName;
+        wrapper?: ClassName;
+        element?: ClassName;
+        icon?: ClassName,
+        toggleCaptionIcon?: ClassName,
+        toggleCaptionIconModActive?: ClassName,
+        prevIcon?: ClassName,
+        nextIcon?: ClassName,
+        closeIcon?: ClassName,
     }
 
 }
