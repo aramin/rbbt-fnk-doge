@@ -426,7 +426,12 @@ export default class ContentSlider {
    * @static
    */
   static _clearHashnav() {
-    window.location.hash = "";
+    if(history.pushState) {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    } else {
+      // fallback for IE9 without polyfill
+      window.location.hash = "";
+    }
   }
 
   /**

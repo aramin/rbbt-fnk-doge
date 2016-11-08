@@ -535,6 +535,8 @@
             console.info("ContentSlider: caption_toggle", visible);
         });
 
+        window.addEventListener("hashchange", contentSlider.onHistoryChange.bind(contentSlider), false);
+
         console.log('CONTENT SLIDER', contentSlider);
 
     })();
