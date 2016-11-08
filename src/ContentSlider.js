@@ -586,9 +586,13 @@ export default class ContentSlider {
    *
    * @public
    */
-  closeOverlay() {
+  closeOverlay(modifyHistory: boolean = true) {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
-    ContentSlider._clearHashnav();
+
+    if(modifyHistory) {
+      ContentSlider._clearHashnav();
+    }
+
     ContentSlider._setDocumentScrollbar(true);
     this._restoreScrollPosition();
     if(this.eventEmitterActive) {
@@ -642,7 +646,7 @@ export default class ContentSlider {
     if(window.location.hash && window.location.hash.match(/#cs-/)) {
       this.openOverlay();
     } else {
-      this.closeOverlay();
+      this.closeOverlay(false);
     }
   }
 }
