@@ -206,7 +206,7 @@ export default class ContentSlider {
     window.setTimeout( () => {
       // send init event
       this.eventEmitter.emit("init");
-      
+
       // show overlay when linked
       this.onHistoryChange();
     }, 0);
@@ -491,7 +491,7 @@ export default class ContentSlider {
       caption: generateClassNameMakro("caption"),
       captionModVisible: generateClassNameMakro("caption", "is-visible"),
       elementContainer: generateClassNameMakro("element-container"),
-      
+
       // icons
       icon: generateClassNameMakro("icon"),
       toggleCaptionIcon: generateClassNameMakro("toggle-caption-icon"),
@@ -591,13 +591,13 @@ export default class ContentSlider {
 
     if(modifyHistory) {
       ContentSlider._clearHashnav();
+      ContentSlider._setDocumentScrollbar(true);
+      this._restoreScrollPosition();
+      if(this.eventEmitterActive) {
+        this.eventEmitter.emit("close");
+      }
     }
 
-    ContentSlider._setDocumentScrollbar(true);
-    this._restoreScrollPosition();
-    if(this.eventEmitterActive) {
-      this.eventEmitter.emit("close");
-    }
     this.eventEmitterActive = false;
   }
 
