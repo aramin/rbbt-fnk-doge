@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Just a simple Swiper example</title>
+    <link rel="stylesheet" href="/simpleSlider.css">
+    <link rel="stylesheet" href="/swiper.css">
+
+    <!--[if gte IE 9]>
+    <link rel="stylesheet" type="text/css" href="/ie9.css"/>
+    <![endif]-->
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script src="/ContentSlider.dev.js"></script>
+</head>
+<body>
+
+<div class="c-simple-slider">
+    <div class="c-simple-slider__overlay c-simple-slider__overlay--is-visible">
+        <div class="c-simple-slider__wrapper">
+            <div class="c-simple-slider__element-container c-swiper__container-horizontal c-simple-slider__element-container">
+                <div class="c-swiper__wrapper">
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-wWIDTH/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-wWIDTH/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-wWIDTH/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w780/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-wWIDTH/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w680/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w680/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-wWIDTH/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w600/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508187/0521624157-ci23x11-w600/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508187/0522504157-ci102l-w1024/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg"
+                                        alt="Der mittelgroße Pick-up ist das Modell der Stunde. Nachdem die europäischen Hersteller das Segment der Allrad-Pritschenwagen lange vernachlässigt haben, wollen sie nun mit Macht die traditionelle Bastion von Toyota Hilux, Nissan Navara und Ford Ranger stürmen. Für den überarbeiteten Amarok hat VW den Pkw-Käufer, der großen Wert auf Komfort legt, ganz oben auf die Liste der Zielkundschaft gesetzt."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508187/0522504157-ci102l-w1024/Mittelgrosse-Pick-ups-sind-das-Modell-der.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="42"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Mittelgroße Pick-ups sind das
+                                    Modell der Stunde. Nachdem die europäischen Hersteller das Segment der
+                                    Allrad-Pritschenwagen lange vernachlässigt haben, wollen sie nun mit Macht die <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Mittelgroße Pick-ups sind das Modell der
+                                        Stunde. Nachdem die europäischen Hersteller das Segment der
+                                        Allrad-Pritschenwagen lange vernachlässigt haben, wollen sie nun mit Macht die
+                                        traditionelle Bastion von Toyota Hilux, Nissan Navara und Ford Ranger stürmen.
+                                        Für den überarbeiteten Amarok hat VW offenbar den Pkw-Käufer ganz oben auf die
+                                        Liste der Zielkundschaft gesetzt. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Mittelgroße Pick-ups sind das Modell der
+                                    Stunde. Nachdem die europäischen Hersteller das Segment der Allrad-Pritschenwagen
+                                    lange vernachlässigt haben, wollen sie nun mit Macht die traditionelle Bastion von
+                                    Toyota Hilux, Nissan Navara und Ford Ranger stürmen. Für den überarbeiteten Amarok
+                                    hat VW offenbar den Pkw-Käufer ganz oben auf die Liste der Zielkundschaft
+                                    gesetzt.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: VW</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-wWIDTH/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-wWIDTH/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-wWIDTH/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w780/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-wWIDTH/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w680/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w680/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-wWIDTH/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w600/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508188/8461624157-ci23x11-w600/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        data-src="https://www.welt.de/img/motor/mobile157508188/8462504157-ci102l-w1024/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg"
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        alt="Schon allein die für ein Nutzfahrzeug viel zu edlen Antriebskombinationen macht den Amarok zu etwas Besonderem. War im Vorgängermodell noch ein Vierzylinder-Diesel verbaut, gibt es nun ausschließlich einen V6-TDI, wie er in ähnlicher Form auch im Porsche Cayenne zum Einsatz kommt. Der liefert wahlweise 163 PS, 204 PS oder 224 PS. Basispreis: 30.606 Euro."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508188/8462504157-ci102l-w1024/Der-VW-Amarok-will-nicht-mehr-nur-Kunden.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="43"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Schon allein die für ein
+                                    Nutzfahrzeug viel zu edlen Antriebskombinationen machen den Amarok zu etwas
+                                    Besonderem. War im Vorgängermodell noch ein Vierzylinder-Diesel verbaut, gibt e
+                                    <span class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Schon allein die für ein Nutzfahrzeug viel
+                                        zu edlen Antriebskombinationen machen den Amarok zu etwas Besonderem. War im
+                                        Vorgängermodell noch ein Vierzylinder-Diesel verbaut, gibt es nun ausschließlich
+                                        einen V6-TDI, wie er in ähnlicher Form auch im Porsche Cayenne zum Einsatz
+                                        kommt. Der liefert wahlweise 163 PS, 204 PS oder 224 PS. Basispreis: 30.606
+                                        Euro. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Schon allein die für ein Nutzfahrzeug viel zu
+                                    edlen Antriebskombinationen machen den Amarok zu etwas Besonderem. War im
+                                    Vorgängermodell noch ein Vierzylinder-Diesel verbaut, gibt es nun ausschließlich
+                                    einen V6-TDI, wie er in ähnlicher Form auch im Porsche Cayenne zum Einsatz kommt.
+                                    Der liefert wahlweise 163 PS, 204 PS oder 224 PS. Basispreis: 30.606 Euro.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: VW</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-wWIDTH/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-wWIDTH/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-wWIDTH/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w780/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-wWIDTH/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w680/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w680/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-wWIDTH/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w600/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508189/3791624157-ci23x11-w600/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508189/3792504157-ci102l-w1024/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg"
+                                        alt="Der Ranger ist so etwas wie der heimliche Bestseller in der Ford-Familie, führt souverän in Deutschland die Verkaufshitparade seiner Spezies an – und ist dennoch hierzulande kaum bekannt. Der bis zu 5,35 Meter lange Pick-up kostet mindestens 27.850 Euro, ist dann allerdings nur mit Heckantrieb ausgestattet. Unter der wuchtigen Haube, deren Design jetzt an die US-Ikone F150 erinnert, werkelt ein Fünfzylinder-Diesel mit 200 PS."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508189/3792504157-ci102l-w1024/Der-Ranger-ist-so-etwas-wie-der-heimlich.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="44"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Der Ranger ist so etwas wie der
+                                    heimliche Bestseller in der Ford-Familie, führt souverän in Deutschland die
+                                    Verkaufshitparade seiner Spezies an – und ist dennoch hierzulande kaum b <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Der Ranger ist so etwas wie der heimliche
+                                        Bestseller in der Ford-Familie, führt souverän in Deutschland die
+                                        Verkaufshitparade seiner Spezies an – und ist dennoch hierzulande kaum bekannt.
+                                        Der bis zu 5,35 Meter lange Pick-up kostet mindestens 27.850 Euro, ist dann
+                                        allerdings nur mit Heckantrieb ausgestattet. Unter der wuchtigen Haube, deren
+                                        Design jetzt an die US-Ikone F150 erinnert, werkelt ein Fünfzylinder-Diesel mit
+                                        200 PS. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Der Ranger ist so etwas wie der heimliche
+                                    Bestseller in der Ford-Familie, führt souverän in Deutschland die Verkaufshitparade
+                                    seiner Spezies an – und ist dennoch hierzulande kaum bekannt. Der bis zu 5,35 Meter
+                                    lange Pick-up kostet mindestens 27.850 Euro, ist dann allerdings nur mit Heckantrieb
+                                    ausgestattet. Unter der wuchtigen Haube, deren Design jetzt an die US-Ikone F150
+                                    erinnert, werkelt ein Fünfzylinder-Diesel mit 200 PS.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Ford</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-wWIDTH/Mitsubishi-L200.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-wWIDTH/Mitsubishi-L200.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-wWIDTH/Mitsubishi-L200.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w780/Mitsubishi-L200.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-wWIDTH/Mitsubishi-L200.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w680/Mitsubishi-L200.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w680/Mitsubishi-L200.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-wWIDTH/Mitsubishi-L200.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w600/Mitsubishi-L200.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508190/0911622067-ci23x11-w600/Mitsubishi-L200.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508190/0912502067-ci102l-w1024/Mitsubishi-L200.jpg"
+                                        alt="Der Mitsubishi L200 hat sich seit vielen Jahren im Pick-up-Geschäft etabliert. Angeboten wird er entweder mit Einzel- oder Doppelkabine. Für die Variante mit Einzelkabine, 2,4-Liter-Diesel mit 154 PS, Allrad und Sechsgangschaltung muss man mindestens 22.290 Euro ausgeben."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508190/0912502067-ci102l-w1024/Mitsubishi-L200.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="45"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Der Mitsubishi L200 hat sich
+                                    seit vielen Jahren im Pick-up-Geschäft etabliert. Angeboten wird er entweder mit
+                                    Einzel- oder Doppelkabine. Für die Variante mit Einzelkabine, 2,4-Lite <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Der Mitsubishi L200 hat sich seit vielen
+                                        Jahren im Pick-up-Geschäft etabliert. Angeboten wird er entweder mit Einzel-
+                                        oder Doppelkabine. Für die Variante mit Einzelkabine, 2,4-Liter-Diesel mit 154
+                                        PS, Allrad und Sechsgangschaltung muss man mindestens 22.290 Euro ausgeben. </p>
+                                </div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Der Mitsubishi L200 hat sich seit vielen
+                                    Jahren im Pick-up-Geschäft etabliert. Angeboten wird er entweder mit Einzel- oder
+                                    Doppelkabine. Für die Variante mit Einzelkabine, 2,4-Liter-Diesel mit 154 PS, Allrad
+                                    und Sechsgangschaltung muss man mindestens 22.290 Euro ausgeben.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Mitsubishi</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-wWIDTH/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-wWIDTH/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-wWIDTH/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w780/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-wWIDTH/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w680/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w680/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-wWIDTH/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w600/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508191/6541622067-ci23x11-w600/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508191/6542502067-ci102l-w1024/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg"
+                                        alt="Der Toyota Hilux bleibt auch in der aktuellen Generation ein äußerst kerniges Fahrzeug. Das Pick-up-Urgestein setzt weiterhin auf robuste Technik mit Leiterrahmen und Blattfeder-Starrachse, lässt aber auch die Moderne ins Cockpit einziehen. Der Preis startet bei 24.590 Euro für die Variante mit Hinterradantrieb, das Allradmodell kostet 28.020 Euro."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508191/6542502067-ci102l-w1024/Der-Toyota-Hilux-bleibt-auch-in-der-neue.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="46"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Der Toyota Hilux bleibt auch in
+                                    der aktuellen Generation ein äußerst kerniges Fahrzeug. Das Pick-up-Urgestein setzt
+                                    weiterhin auf robuste Technik mit Leiterrahmen und Blattfeder-St <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Der Toyota Hilux bleibt auch in der
+                                        aktuellen Generation ein äußerst kerniges Fahrzeug. Das Pick-up-Urgestein setzt
+                                        weiterhin auf robuste Technik mit Leiterrahmen und Blattfeder-Starrachse, lässt
+                                        aber auch die Moderne ins Cockpit einziehen. Der Preis startet bei 24.590 Euro
+                                        für die Variante mit Hinterradantrieb, das Allradmodell kostet 28.020 Euro. </p>
+                                </div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Der Toyota Hilux bleibt auch in der aktuellen
+                                    Generation ein äußerst kerniges Fahrzeug. Das Pick-up-Urgestein setzt weiterhin auf
+                                    robuste Technik mit Leiterrahmen und Blattfeder-Starrachse, lässt aber auch die
+                                    Moderne ins Cockpit einziehen. Der Preis startet bei 24.590 Euro für die Variante
+                                    mit Hinterradantrieb, das Allradmodell kostet 28.020 Euro.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Toyota</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-wWIDTH/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-wWIDTH/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-wWIDTH/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w780/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-wWIDTH/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w680/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w680/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-wWIDTH/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w600/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508192/7701622067-ci23x11-w600/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508192/7702502067-ci102l-w1024/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg"
+                                        alt="Unter all den weichgespülten SUV sind Pick-ups häufig die letzten echten Abenteuer-Mobile. Der Nissan Navara kombiniert Offroad-Geist mit ordentlichen Fähigkeiten auf Asphalt. Der Kunde hat die Wahl zwischen einem Modell mit Doppelkabine und ..."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508192/7702502067-ci102l-w1024/Unter-all-den-weichgespuelten-SUV-sind-Pi.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="47"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Unter all den weichgespülten
+                                    SUVs sind Pick-ups häufig die letzten echten Abenteuer-Mobile. Der Nissan Navara
+                                    kombiniert Offroad-Geist mit ordentlichen Fähigkeiten auf Asphalt. Der <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Unter all den weichgespülten SUVs sind
+                                        Pick-ups häufig die letzten echten Abenteuer-Mobile. Der Nissan Navara
+                                        kombiniert Offroad-Geist mit ordentlichen Fähigkeiten auf Asphalt. Der Kunde hat
+                                        die Wahl zwischen einem Modell mit Doppelkabine und ... </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Unter all den weichgespülten SUVs sind
+                                    Pick-ups häufig die letzten echten Abenteuer-Mobile. Der Nissan Navara kombiniert
+                                    Offroad-Geist mit ordentlichen Fähigkeiten auf Asphalt. Der Kunde hat die Wahl
+                                    zwischen einem Modell mit Doppelkabine und ...</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Nissan</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-wWIDTH/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-wWIDTH/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-wWIDTH/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w780/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-wWIDTH/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w680/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w680/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-wWIDTH/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w600/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508193/3941622067-ci23x11-w600/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        data-src="https://www.welt.de/img/motor/mobile157508193/3942502067-ci102l-w1024/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg"
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        alt="... und dem King Cab genannten Einstiegsmodell. Die Ladefläche des King- Cab ist 21 Zentimeter länger als die des Double Cab und kommt auf 1,79 Meter. Für den Antrieb sorgt ein 2,3-Liter Diesel mit 160 PS, der seine Kraft an die Hinterachse erteilt. Der King Cab 4x2 kostet 25.095 Euro, 5000 Euro weniger als die allradbetriebene Double-Cab-Variante."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508193/3942502067-ci102l-w1024/Nissan-erweitert-ab-sofort-das-Angebot-s.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="48"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> ... dem King Cab genannten
+                                    Einstiegsmodell. Die Ladefläche des King Cab ist 21 Zentimeter länger als die des
+                                    Double Cab und kommt auf 1,79 Meter. Für den Antrieb sorgt ein 2,3-Lite <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> ... dem King Cab genannten
+                                        Einstiegsmodell. Die Ladefläche des King Cab ist 21 Zentimeter länger als die
+                                        des Double Cab und kommt auf 1,79 Meter. Für den Antrieb sorgt ein
+                                        2,3-Liter-Diesel mit 160 PS, der seine Kraft an die Hinterachse weiterleitet.
+                                        Der King Cab 4x2 kostet 25.095 Euro, 5000 Euro weniger als die allradbetriebene
+                                        Double-Cab-Variante. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">... dem King Cab genannten Einstiegsmodell.
+                                    Die Ladefläche des King Cab ist 21 Zentimeter länger als die des Double Cab und
+                                    kommt auf 1,79 Meter. Für den Antrieb sorgt ein 2,3-Liter-Diesel mit 160 PS, der
+                                    seine Kraft an die Hinterachse weiterleitet. Der King Cab 4x2 kostet 25.095 Euro,
+                                    5000 Euro weniger als die allradbetriebene Double-Cab-Variante.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Nissan</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-wWIDTH/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-wWIDTH/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-wWIDTH/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w780/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-wWIDTH/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w680/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w680/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-wWIDTH/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w600/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508194/7361622067-ci23x11-w600/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        data-src="https://www.welt.de/img/motor/mobile157508194/7362502067-ci102l-w1024/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg"
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        alt="Neu ins Pick-up-Geschäft ist Fiat mit dem Fullback eingestiegen. Die Technik stammt vom Mitsubishi L200. Der Fullback wird als Double-Cab (Fünfsitzer), Extended Cab (2+2-Sitzer) und Fahrgestell angeboten. Zur Wahl stehen Heck- oder Allradantrieb. Als Double Cab kostet er in Verbindung mit dem 181 PS starken 2,4-Liter-Aggregat und dem gut ausgestatteten Launch-Paket mindestens 32.725 Euro."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508194/7362502067-ci102l-w1024/Der-Fiat-Fullback-basiert-auf-dem-Mitsub.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="49"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Neu ins Pick-up-Geschäft ist
+                                    Fiat mit dem Fullback eingestiegen. Die Technik stammt vom Mitsubishi L200. Der
+                                    Fullback wird als Double-Cab (Fünfsitzer), Extended Cab (2+2-Sitzer) un <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Neu ins Pick-up-Geschäft ist Fiat mit dem
+                                        Fullback eingestiegen. Die Technik stammt vom Mitsubishi L200. Der Fullback wird
+                                        als Double-Cab (Fünfsitzer), Extended Cab (2+2-Sitzer) und Fahrgestell
+                                        angeboten. Zur Wahl stehen Heck- oder Allradantrieb. Als Double Cab kostet er in
+                                        Verbindung mit dem 181 PS starken 2,4-Liter-Aggregat und dem gut ausgestatteten
+                                        Launch-Paket mindestens 32.725 Euro. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Neu ins Pick-up-Geschäft ist Fiat mit dem
+                                    Fullback eingestiegen. Die Technik stammt vom Mitsubishi L200. Der Fullback wird als
+                                    Double-Cab (Fünfsitzer), Extended Cab (2+2-Sitzer) und Fahrgestell angeboten. Zur
+                                    Wahl stehen Heck- oder Allradantrieb. Als Double Cab kostet er in Verbindung mit dem
+                                    181 PS starken 2,4-Liter-Aggregat und dem gut ausgestatteten Launch-Paket mindestens
+                                    32.725 Euro.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Fiat</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-wWIDTH/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-wWIDTH/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-wWIDTH/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w780/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-wWIDTH/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w680/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w680/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-wWIDTH/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w600/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508195/9191629977-ci23x11-w600/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-component="LazyLoad"
+                                        data-src="https://www.welt.de/img/motor/mobile157508195/9192509977-ci102l-w1024/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg"
+                                        alt="Renault zieht dann bald mit einem kernigen Pick-up-Modell nach. Der Alaskan basiert auf dem Nissan Navara und soll 2017 auf den Markt kommen."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508195/9192509977-ci102l-w1024/Auch-Renault-wird-kuenftig-mit-dem-Alaska.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text"><p
+                                    class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin u-is-not-visible-on-desktop"
+                                    data-qa="Element.Caption.Desktop.text"> Renault zieht dann bald mit einem kernigen
+                                Pick-up-Modell nach. Der Alaskan basiert auf dem Nissan Navara und soll 2017 auf den
+                                Markt kommen. </p>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Renault zieht dann bald mit einem kernigen
+                                    Pick-up-Modell nach. Der Alaskan basiert auf dem Nissan Navara und soll 2017 auf den
+                                    Markt kommen.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Renault</p></figcaption>
+                    </div>
+                    <div class="c-swiper__slide-content">
+                        <div data-qa="PictureElement.placeholder"
+                             class="c-placeholder--has-profile c-placeholder--is-inline-teaser-profile">
+                            <picture class="c-placeholder__body o-element__image c-image-element__image"> <!--[if IE 9]>
+                                <video style="display: none;"><![endif]-->
+                                <source data-breakpoint="XXLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-wWIDTH/Mercedes-Pick-up.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x"
+                                        media="(min-width: 1600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x">
+                                <source data-breakpoint="XLarge"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-wWIDTH/Mercedes-Pick-up.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x"
+                                        media="(min-width: 1136px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x">
+                                <source data-breakpoint="Large"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-wWIDTH/Mercedes-Pick-up.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x"
+                                        media="(min-width: 910px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w780/Mercedes-Pick-up.jpg 1.0x">
+                                <source data-breakpoint="Medium"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-wWIDTH/Mercedes-Pick-up.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w680/Mercedes-Pick-up.jpg 1.0x"
+                                        media="(min-width: 600px)"
+                                        srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w680/Mercedes-Pick-up.jpg 1.0x">
+                                <source data-breakpoint="Small"
+                                        data-src-template="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-wWIDTH/Mercedes-Pick-up.jpg"
+                                        data-srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w600/Mercedes-Pick-up.jpg 1.0x"
+                                        srcset="https://www.welt.de/img/motor/mobile157508196/8361629977-ci23x11-w600/Mercedes-Pick-up.jpg 1.0x">
+                                <!--[if IE 9]></video><![endif]--> <img
+                                        style="background-image: url('/static/images/global/welt-logo-fallback.svg')"
+                                        data-src="https://www.welt.de/img/motor/mobile157508196/8362509977-ci102l-w1024/Mercedes-Pick-up.jpg"
+                                        data-component="LazyLoad"
+                                        alt="Bald wird es auch einen Pick-up mit Stern geben. Daimler hat seine Zusammenarbeit mit Renault-Nissan intensiviert; das Ergebnis wird ein Pick-up sein, der in Teilen ebenfalls die Architektur des Nissan Navara übernehmen soll. Der Wagen soll jedoch von den Stuttgartern konstruiert und designt werden."
+                                        class=" lazyloaded"
+                                        src="https://www.welt.de/img/motor/mobile157508196/8362509977-ci102l-w1024/Mercedes-Pick-up.jpg">
+                            </picture>
+                        </div>
+                        <figcaption class="o-element__caption c-image-element__caption" data-content="Gallery.caption"
+                                    data-qa="Element.Caption"><p
+                                class="o-element__text c-gallery-element__pagination u-text--is-centered"
+                                data-qa="GalleryElement.pagination"> 1 von 10 </p>
+                            <div class="o-element__text" data-qa="Element.Caption.text">
+                                <div class="u-is-not-visible-on-desktop" data-component="Toggle"
+                                     data-toggle-class="u-display--is-hidden" data-node-uid="50"><p
+                                        class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable"
+                                        data-action="Toggle.toggle" data-content="Toggle.element"
+                                        data-qa="Element.Caption.Mobile.Collapsed.text"> Bald wird es auch einen Pick-up
+                                    mit Stern geben. Daimler hat seine Zusammenarbeit mit Renault-Nissan intensiviert;
+                                    das Ergebnis wird ein Pick-up sein, der in Teilen ebenfalls die A <span
+                                            class="o-element__caption-dotdotdot">...</span></p>
+                                    <p class="o-element__text o-element__text--has-no-ellipsis o-element__text--has-no-margin o-element__caption-expandable u-display--is-hidden"
+                                       data-content="Toggle.element" data-action="Toggle.toggle"
+                                       data-qa="Element.Caption.Mobile.text"> Bald wird es auch einen Pick-up mit Stern
+                                        geben. Daimler hat seine Zusammenarbeit mit Renault-Nissan intensiviert; das
+                                        Ergebnis wird ein Pick-up sein, der in Teilen ebenfalls die Architektur des
+                                        Nissan Navara übernehmen soll. Der Wagen soll jedoch von den Stuttgartern
+                                        konstruiert und designt werden. </p></div>
+                                <p class="o-element__text u-is-visible-from-medium-to-large u-is-not-visible-until-medium"
+                                   data-qa="Element.Caption.Desktop.text">Bald wird es auch einen Pick-up mit Stern
+                                    geben. Daimler hat seine Zusammenarbeit mit Renault-Nissan intensiviert; das
+                                    Ergebnis wird ein Pick-up sein, der in Teilen ebenfalls die Architektur des Nissan
+                                    Navara übernehmen soll. Der Wagen soll jedoch von den Stuttgartern konstruiert und
+                                    designt werden.</p></div>
+                            <p class="o-element__text o-element__text--is-small " data-qa="Element.Caption.copyright">
+                                Quelle: Daimler</p></figcaption>
+                    </div>
+                </div>
+
+            </div>
+            <div class="c-simple-slider__caption"><p></p></div>
+            <div class="c-simple-slider__nav"><span class="c-simple-slider__nav-position">1 von 0</span>
+                <div class="c-simple-slider__icons">
+                    <div class="c-simple-slider__icon c-simple-slider__toggle-caption-icon"></div>
+                    <div class="c-simple-slider__icon c-simple-slider__prev-icon c-swiper__button--is-disabled"></div>
+                    <div class="c-simple-slider__icon c-simple-slider__next-icon c-swiper__button--is-disabled"></div>
+                    <div class="c-simple-slider__icon c-simple-slider__close-icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var SimpleContentSlider = ContentSliderModule.SimpleContentSlider;
+
+        console.log(SimpleContentSlider);
+
+        var contentSlider = new SimpleContentSlider({
+            root: document.querySelector(".c-simple-slider"),
+            container: ".c-simple-slider__element-container",
+            bemBlockName: "c-simple-slider",
+            swiperBemBlockName: "c-swiper"
+        });
+
+        /*
+         var swiper = new Swiper(document.querySelector(".c-content-slider__element-container"), {
+         // Swiper Options
+         direction: 'horizontal',
+         slidesPerView: 1,
+
+         // set prev- and next buttons to buttons provided by content-slider
+         nextButton: '.c-content-slider__next-icon',
+         prevButton: '.c-content-slider__prev-icon',
+
+         // keyboardControl
+         keyboardControl: true,
+
+         // hashnav
+         hashnav: true,
+         hashnavWatchState: true,
+
+         // Swiper CSS Classes
+         containerModifierClass: 'c-swiper__container-',
+         slideClass: 'c-swiper__slide',
+         slideActiveClass: 'c-swiper__slide--is-active',
+         slideDuplicateActiveClass: 'c-swiper__slide--is-duplicate-active',
+         slideVisibleClass: 'c-swiper__slide--is-visible',
+         slideDuplicateClass: 'c-swiper__slide--is-duplicate',
+         slideNextClass: 'c-swiper__slide--is-next',
+         slideDuplicateNextClass: 'c-swiper__slide--is-duplicate-next',
+         slidePrevClass: 'c-swiper__slide--is-prev',
+         slideDuplicatePrevClass: 'c-swiper__slide--is-duplicate-prev',
+         noSwipingClass: 'c-swiper__no-swiping',
+         wrapperClass: 'c-swiper__wrapper',
+         bulletClass: 'c-swiper__pagination-bullet',
+         bulletActiveClass: 'c-swiper__pagination-bullet--is-active',
+         buttonDisabledClass: 'c-swiper__button--is-disabled',
+         paginationCurrentClass: 'c-swiper__pagination--is-current',
+         paginationTotalClass: 'c-swiper__pagination-total',
+         paginationHiddenClass: 'c-swiper__pagination--is-hidden',
+         paginationProgressbarClass: 'c-swiper__pagination-progressbar',
+         paginationClickableClass: 'c-swiper__pagination--is-clickable',
+         paginationModifierClass: 'c-swiper__pagination--',
+         lazyLoadingClass: 'c-swiper__lazy',
+         lazyStatusLoadingClass: 'c-swiper__lazy--is-loading',
+         lazyStatusLoadedClass: 'c-swiper__lazy--is-loaded',
+         lazyPreloaderClass: 'c-swiper__lazy-preloader',
+         notificationClass: 'c-swiper__notification',
+         preloaderClass: 'c-swiper__preloader',
+         zoomContainerClass: 'c-swiper__zoom-container'
+         });
+         */
+    })();
+</script>
+</body>
+</html>
