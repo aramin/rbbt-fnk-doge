@@ -1,10 +1,10 @@
 // @tcomb
 
+import Swiper from "swiper";
 import ContentSliderCSSClasses from "./ContentSliderCSSClasses";
 import EventEmitter from "eventemitter3";
 import merge from "lodash.merge";
-import {ClassName} from "./ContentSliderTypes";
-import DogeHelper from "./DogeHelper";
+import {ClassName, ContentSliderEvent} from "./ContentSliderTypes";
 
 type SimpleSliderOptions = {
   root: Element,
@@ -120,7 +120,6 @@ export default class SimpleContentSlider {
    */
   _setupElements() {
     this.elements.container = this.options.root.querySelector(this.options.container);
-    this.elements.caption = DogeHelper._queryByClassName(this.options.root, this.cssClasses.caption);
   }
 
   /**
@@ -134,7 +133,12 @@ export default class SimpleContentSlider {
 
     this.swiper = new Swiper(this.elements.container, this.swiperOptions);
 
+    this.swiper.on("onTransitionEnd", () => {
+      console.log("EEEEEND");
+    });
+    
     this.swiper.on("onSlidePrevEnd", swiper => {
+      console.log("FOOOO");
       this.eventEmitter.emit("prev", swiper.activeIndex);
     });
 
@@ -165,6 +169,8 @@ export default class SimpleContentSlider {
       overlay: generateClassNameMakro("overlay"),
       overlayModVisible: generateClassNameMakro("overlay", "is-visible"),
       elementContainer: generateClassNameMakro("element-container"),
+      prevIcon: generateClassNameMakro("prev-icon"),
+      nextIcon: generateClassNameMakro("next-icon")
     }
   }
 
@@ -175,6 +181,7 @@ export default class SimpleContentSlider {
    * @private
    */
   _generateSwiperDefaultOptionsForBlockName(block: string) {
+    console.log("SWIPER BLOKC:", block);
     return {
       // Swiper Options
       direction: "horizontal",
@@ -200,7 +207,8 @@ export default class SimpleContentSlider {
       slideNextClass: `${block}__slide--is-next`,
       slideDuplicateNextClass: `${block}__slide--is-duplicate-next`,
       slidePrevClass: `${block}__slide--is-prev`,
-      slideDuplicatePrevClass: `${block}__slide--is-duplicate-prev`
+      slideDuplicatePrevClass: `${block}__slide--is-duplicate-prev`,
+      wrapperClass: `${block}__wrapper`
     }
   }
 

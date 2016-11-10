@@ -53,6 +53,9 @@ declare namespace ContentSlider {
         on(event:ContentSliderEvent, callback:(...args: any[]) => void);
 
         onHistoryChange(): void;
+
+        // the swiper instance
+        swiper: any;
     }
 
     export class SimpleContentSlider {
@@ -61,5 +64,8 @@ declare namespace ContentSlider {
                     swiperOptions?: any);
 
         on(event:ContentSliderEvent, callback:(...args: any[]) => void);
+
+        // the swiper instance
+        swiper: any;
     }
 }

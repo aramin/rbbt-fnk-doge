@@ -79,7 +79,9 @@
   },
   "nyc": {
     "include": [
-      "src/ContentSlider.js"
+      "src/ContentSlider.js",
+      "src/OverlayContentSlider.js",
+      "src/SimpleContentSlider.js"
     ]
   },
   "dependencies": {}

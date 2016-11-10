@@ -7,7 +7,7 @@
  * @see https://github.com/WeltN24/doge
  */
 
-import OverlayContentSlider from './OverlayContentSlider';
-import SimpleContentSlider from './SimpleContentSlider';
+import OverlayContentSlider from "./OverlayContentSlider";
+import SimpleContentSlider from "./SimpleContentSlider";
 
 export {OverlayContentSlider, SimpleContentSlider};
