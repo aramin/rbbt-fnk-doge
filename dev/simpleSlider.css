@@ -1,0 +1,141 @@
+
+/* VENDOR */
+.c-image-element__caption {
+    max-width: 100%;
+}
+
+.c-placeholder--is-inline-teaser-profile {
+    padding-bottom: 100%;
+}
+.c-placeholder--has-profile {
+    display: block;
+    position: relative;
+    height: 0;
+}
+
+.c-placeholder__body > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #edece8;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    color: transparent;
+}
+
+/* VENDOR END */
+
+
+.c-simple-slider {}
+
+.c-simple-slider__element-container {
+    height: 300px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+.c-simple-slider__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    background-color: white;;
+}
+
+.c-simple-slider__overlay--is-visible {
+    display: block;
+}
+
+.c-simple-slider__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-simple-slider__element-container {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+    height: inherit;
+}
+
+.c-simple-slider__caption {
+    box-sizing: content-box;
+    width: 100%;
+    flex-grow: 1;
+
+    font-size: 14px;
+    border-top: 1px solid #edece8;
+    display: block;
+    max-height: 250px;
+    transition: max-height 200ms ease-in;
+}
+
+.c-simple-slider__caption > p {
+    padding: 24px 15px;
+    margin: 0;
+}
+
+.c-simple-slider__nav-position {
+    float: left;
+    font-size: calc(0.75em + 1vmin);
+}
+
+.c-simple-slider__nav {
+    position: relative;
+    flex-shrink: 0;
+    align-self: flex-end;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #edece8;
+    background-color: white;
+    font-weight: bold;
+
+    /* as description slides in from bottom, nav needs a higher z-index */
+    z-index: 1;
+}
+
+.c-simple-slider__icons {
+    position: absolute;
+    right: 0;
+
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.c-simple-slider__icon {
+    width: 6.5vh;
+    height: 6.5vh;
+    min-width: 50px;
+    min-height: 50px;
+
+    float: left;
+    display: inline-block;
+    border-left: 1px solid #edece8;
+
+    font-size: calc(0.75em + 1vmin);
+
+    touch-action: manipulation
+}
+
+.c-simple-slider__icon:active, .c-simple-slider__toggle-caption-icon--is-active {
+    background-color: #edece8;
+}
+
+.c-simple-slider__image-wrapper {
+    height: 100%;
+    padding: 50px;
+}

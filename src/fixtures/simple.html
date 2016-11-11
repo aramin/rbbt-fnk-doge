@@ -1,30 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Content Slider Fixture</title>
+</head>
 <body>
 
-<img class="content-slider__image" src="http://placehold.it/150x150"/>
+<div class="content-slider-fixture">
+    <div class="content-slider-fixture__wrapper">
 
-<div class="overlay">
-    <div class="content-slider__wrapper">
+        <div class="content-slider-fixture__element-container c-swiper__container-horizontal">
+            <div class="c-swiper__wrapper">
 
-        <div class="content-slider__element-container">
-            <div class="c-swiper__wrapper"></div>
-        </div>
+                <div class="c-swiper__slide">
+                    Foo
+                </div>
 
-        <div class="content-slider__caption"></div>
+                <div class="c-swiper__slide">
+                    Bar
+                </div>
 
-        <div class="content-slider__nav">
-            <span class="content-slider__nav-position">
-                1 von 47
-            </span>
-
-            <div class="content-slider__icons">
-                <div class="content-slider__icon content-slider__toggle-caption-icon"></div>
-                <div class="content-slider__icon content-slider__prev-icon"></div>
-                <div class="content-slider__icon content-slider__next-icon"></div>
-                <div class="content-slider__icon content-slider__close-icon"></div>
             </div>
         </div>
 
+        <button class="content-slider-fixture__prev-icon">prev</button>
+        <button class="content-slider-fixture__next-icon">next</button>
     </div>
 </div>
 

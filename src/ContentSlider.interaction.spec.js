@@ -1,15 +1,15 @@
 // @tcomb
 
 import test from 'ava';
-import ContentSlider from "./ContentSlider";
+import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "./testHelper";
 
-test.beforeEach('setup fixture', t => Fixture("./fixtures/simple.html", (document) => {
+test.beforeEach('setup fixture', t => Fixture("./fixtures/overlay.html", (document) => {
   t.context.document = document;
 }));
 
 test.beforeEach('setup slider', t => {
-  t.context.slider = new ContentSlider({
+  t.context.slider = new OverlayContentSlider({
     content: '.content-slider__image',
     overlay: '.overlay',
     extractSliderElement: function() {

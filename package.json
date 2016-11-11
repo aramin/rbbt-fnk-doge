@@ -1,6 +1,6 @@
 {
   "name": "weltn24-doge",
-  "version": "1.3.13",
+  "version": "2.0.0-rc3",
   "description": "A Content Slider micro library",
   "main": "dist/ContentSlider.min.js",
   "typings": "src/ContentSlider.d.ts",
@@ -79,7 +79,9 @@
   },
   "nyc": {
     "include": [
-      "src/ContentSlider.js"
+      "src/ContentSlider.js",
+      "src/OverlayContentSlider.js",
+      "src/SimpleContentSlider.js"
     ]
   },
   "dependencies": {}

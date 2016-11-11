@@ -1,10 +1,10 @@
 // @tcomb
 
 import test from 'ava';
-import ContentSlider from "./ContentSlider";
+import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "./testHelper";
 
-test('is not a single', t => Fixture("./fixtures/simple.html", (document) => {
+test('is not a single', t => Fixture("./fixtures/overlay.html", (document) => {
   // when:
   let
     options = {
@@ -16,8 +16,8 @@ test('is not a single', t => Fixture("./fixtures/simple.html", (document) => {
         return index;
       }
     },
-    instance_one = new ContentSlider(options),
-    instance_two = new ContentSlider(options);
+    instance_one = new OverlayContentSlider(options),
+    instance_two = new OverlayContentSlider(options);
 
   // then:
   t.false(instance_one === instance_two, "ContentSlider is no singleton");

@@ -408,9 +408,9 @@
 
 <script>
     (function() {
-        var ContentSlider = ContentSliderModule.default;
+        var OverlayContentSlider = ContentSliderModule.OverlayContentSlider;
 
-        var contentSlider = new ContentSlider({
+        var contentSlider = new OverlayContentSlider({
             // Doge Options
             content: "[data-content-slider-component='image']",
             overlay: ".c-content-slider__overlay",
@@ -536,8 +536,6 @@
         });
 
         window.addEventListener("hashchange", contentSlider.onHistoryChange.bind(contentSlider), false);
-
-        console.log('CONTENT SLIDER', contentSlider);
 
     })();
 

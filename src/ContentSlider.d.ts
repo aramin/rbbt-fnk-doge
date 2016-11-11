@@ -9,23 +9,8 @@ type ContentSliderEvent = "open"
     | "prev"
     | "init";
 
-declare class ContentSlider {
-    constructor(options: ContentSlider.ContentSliderOptions,
-                cssClasses?: ContentSlider.ContentSliderCSSClasses,
-                swiperOptions?: any);
-
-    openOverlay(): void;
-
-    closeOverlay(): void;
-
-    toggleCaption(): void;
-
-    on(event:ContentSliderEvent, callback:(...args: any[]) => void);
-
-    onHistoryChange(): void;
-}
-
 declare namespace ContentSlider {
+
     export interface ContentSliderOptions {
         content: QuerySelector;
         overlay: QuerySelector;
@@ -54,4 +39,33 @@ declare namespace ContentSlider {
         closeIcon?: ClassName,
     }
 
+    export class OverlayContentSlider {
+        constructor(options: ContentSlider.ContentSliderOptions,
+                    cssClasses?: ContentSlider.ContentSliderCSSClasses,
+                    swiperOptions?: any);
+
+        openOverlay(): void;
+
+        closeOverlay(): void;
+
+        toggleCaption(): void;
+
+        on(event:ContentSliderEvent, callback:(...args: any[]) => void);
+
+        onHistoryChange(): void;
+
+        // the swiper instance
+        swiper: any;
+    }
+
+    export class SimpleContentSlider {
+        constructor(options: ContentSlider.ContentSliderOptions,
+                    cssClasses?: ContentSlider.ContentSliderCSSClasses,
+                    swiperOptions?: any);
+
+        on(event:ContentSliderEvent, callback:(...args: any[]) => void);
+
+        // the swiper instance
+        swiper: any;
+    }
 }
