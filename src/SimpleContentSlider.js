@@ -133,12 +133,7 @@ export default class SimpleContentSlider {
 
     this.swiper = new Swiper(this.elements.container, this.swiperOptions);
 
-    this.swiper.on("onTransitionEnd", () => {
-      console.log("EEEEEND");
-    });
-    
     this.swiper.on("onSlidePrevEnd", swiper => {
-      console.log("FOOOO");
       this.eventEmitter.emit("prev", swiper.activeIndex);
     });
 
@@ -181,7 +176,6 @@ export default class SimpleContentSlider {
    * @private
    */
   _generateSwiperDefaultOptionsForBlockName(block: string) {
-    console.log("SWIPER BLOKC:", block);
     return {
       // Swiper Options
       direction: "horizontal",
