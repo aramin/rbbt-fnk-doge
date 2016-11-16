@@ -7,6 +7,7 @@ import {QuerySelector} from "./ContentSliderTypes";
  *
  * @typedef ContentSliderOptions
  * @property {QuerySelector} content - the selector of the swipeable content elements
+ * @property [QuerySelector} triggerContent - 
  * @property {QuerySelector} overlay - the selector of the overlay
  * @property {QuerySelector} bemBlockName - [optional] set the block-part of the css-class name
  * @property {QuerySelector} swiperBemBlockName - [optional] set the block-part of the css-class name for swiper-options
@@ -16,6 +17,7 @@ import {QuerySelector} from "./ContentSliderTypes";
  */
 type ContentSliderOptions = {
   content: QuerySelector,
+  triggerSelector?: QuerySelector,
   overlay: QuerySelector,
   bemBlockName?: string,
   swiperBemBlockName?: string,

@@ -30,6 +30,7 @@ export default class OverlayContentSlider {
    * elements
    *
    * @property {Array<Element>} content - the content elements defined by `options.content`
+   * @property {Array<Element>} triggerContent - the clickable elements
    * @property {Element} overlay - the overlay element defined by `options.overlay`
    * @property {Element} caption - the caption element defined by `cssClasses.caption`
    * @property {Element} elementsContainer - the elements container defined by `cssClasses.elementsContainer`
@@ -39,6 +40,7 @@ export default class OverlayContentSlider {
    */
   elements: {
     content: Array<Element>,
+    triggerContent: Array<Element>,
     overlay: Element,
     caption: Element,
     elementsContainer: Element,
@@ -102,7 +104,8 @@ export default class OverlayContentSlider {
   constructor(options: ContentSliderOptions, cssClasses?: ContentSliderCSSClasses, swiperOptions?) {
     // setup options and defaults
     this.elements = {
-      content: []
+      content: [],
+      triggerContent: []
     };
     this.captions = {};
     this.scrollPosition = [0, 0];
@@ -152,6 +155,13 @@ export default class OverlayContentSlider {
   _setupContent() {
     [].forEach.call(document.querySelectorAll(this.options.content), (image) => {
       this.elements.content.push(image);
+
+      if(this.options.triggerSelector) {
+        let triggerElem: Element = image.querySelector(this.options.triggerSelector);
+        this.elements.triggerContent.push(triggerElem || image);
+      } else {
+        this.elements.triggerContent.push(image);
+      }
     });
 
     this.elements.overlay = document.querySelector(this.options.overlay);
@@ -172,7 +182,7 @@ export default class OverlayContentSlider {
    * @private
    */
   _setupHandlers() {
-    this.elements.content.forEach((elem, elemIndex) => {
+    this.elements.triggerContent.forEach((elem, elemIndex) => {
       elem.addEventListener("click", (event) => {
         this.openOverlay();
         this.swiper.slideTo(elemIndex);

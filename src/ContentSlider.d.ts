@@ -13,6 +13,7 @@ declare namespace ContentSlider {
 
     export interface ContentSliderOptions {
         content: QuerySelector;
+        triggerSelector: QuerySelector;
         overlay: QuerySelector;
         bemBlockName?: string;
         swiperBemBlockName?: string;
