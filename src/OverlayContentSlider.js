@@ -203,6 +203,11 @@ export default class OverlayContentSlider {
       }
 
     });
+
+    // orientation change handler
+    window.addEventListener("orientationchange", (): void => {
+      this._recalculateSizes();
+    });
   }
 
   /**
