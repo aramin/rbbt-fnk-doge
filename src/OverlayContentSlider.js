@@ -143,7 +143,7 @@ export default class OverlayContentSlider {
 
       // show overlay when linked
       if(this._isOverlayOpen()) {
-        this.openOverlay();
+        this.openOverlay(false);
       }
     }, 0);
   }
