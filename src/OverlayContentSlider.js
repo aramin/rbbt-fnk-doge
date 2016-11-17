@@ -142,7 +142,9 @@ export default class OverlayContentSlider {
       this.eventEmitter.emit("init");
 
       // show overlay when linked
-      this.onHistoryChange();
+      if(this._isOverlayOpen()) {
+        this.openOverlay();
+      }
     }, 0);
   }
 
@@ -209,7 +211,9 @@ export default class OverlayContentSlider {
     document.addEventListener("keyup", (event) => {
       // escape key
       if(event.keyCode === 27) {
-        this.closeOverlay();
+        if(this._isOverlayOpen()) {
+          this.closeOverlay();
+        }
       }
 
     });
@@ -371,13 +375,34 @@ export default class OverlayContentSlider {
    * @private
    * @static
    */
-  static _clearHashnav() {
-    if(history.pushState) {
-      history.pushState("", document.title, window.location.pathname + window.location.search);
+  _clearHashnav() {
+    if(window.history) {
+      // use replaceState or pushState
+      if(this.swiperOptions.replaceState) {
+        window.history.replaceState("", document.title, window.location.pathname + window.location.search);
+      } else {
+        window.history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
     } else {
       // fallback for IE9 without polyfill
       window.location.hash = "";
     }
+  }
+
+  /**
+   * add current url to history
+   * reason: to close the overlay on history.back()
+   * @private
+   */
+  _addState() {
+    if(this.swiperOptions.replaceState && window.history.pushState) {
+      window.history.pushState("", document.title, window.location.pathname);
+    }
+
+  }
+  
+  _isOverlayOpen(): boolean {
+    return window.location.hash && window.location.hash.match(/#cs-/);
   }
 
   /**
@@ -515,11 +540,16 @@ export default class OverlayContentSlider {
    *
    * @public
    */
-  openOverlay() {
+  openOverlay(modifyHistory: boolean = true) {
+    if(modifyHistory) {
+      this._addState();
+    }
+
     // overlay must be visible, before swiper gets initialized
     this.elements.overlay.classList.add(this.cssClasses.overlayModVisible);
     this._saveScrollPosition();
     OverlayContentSlider._setDocumentScrollbar(false);
+
     this._initSwiper();
     this._recalculateSizes();
 
@@ -536,12 +566,17 @@ export default class OverlayContentSlider {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
 
     if(modifyHistory) {
-      OverlayContentSlider._clearHashnav();
       OverlayContentSlider._setDocumentScrollbar(true);
       this._restoreScrollPosition();
 
       if(this.eventEmitterActive) {
         this.eventEmitter.emit("close");
+      }
+
+      if(this.swiperOptions.replaceState) {
+        window.history.back();
+      } else {
+        this._clearHashnav();
       }
     }
 
@@ -591,7 +626,7 @@ export default class OverlayContentSlider {
    */
   onHistoryChange() {
     if(window.location.hash && window.location.hash.match(/#cs-/)) {
-      this.openOverlay();
+      this.openOverlay(false);
     } else {
       this.closeOverlay(false);
     }

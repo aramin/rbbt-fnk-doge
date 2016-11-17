@@ -6,7 +6,7 @@ import t from 'tcomb';
 import sinon from 'sinon';
 
 // browserEnv needed for DOM related functions
-var window = browserEnv();
+export var window = browserEnv();
 
 // set window.Date (as it is required by Swiper)
 window.Date = Date;

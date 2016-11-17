@@ -2,13 +2,15 @@
 
 import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";
-import {Fixture} from "./testHelper";
+import {Fixture, window} from "./testHelper";
+import sinon from "sinon";
 
-test.beforeEach('setup fixture', t => Fixture("./fixtures/overlay.html", (document) => {
+test.serial.beforeEach('setup fixture', t => Fixture("./fixtures/overlay.html", (document) => {
   t.context.document = document;
+  t.context.window = window;
 }));
 
-test.beforeEach('setup slider', t => {
+test.serial.beforeEach('setup slider', t => {
   t.context.slider = new OverlayContentSlider({
     content: '.content-slider__image',
     overlay: '.overlay',
@@ -21,8 +23,22 @@ test.beforeEach('setup slider', t => {
     }
   });
 });
+
+test.serial.beforeEach('setup history mock', t => {
+  const {window} = t.context;
+
+  t.context.pushStateSpy = sinon.stub(window.history, "pushState");
+  t.context.backSpy = sinon.spy(window.history, "back");
+});
+
+test.serial.afterEach.always("restore history functions", t => {
+  const {window} = t.context;
+
+  window.history.pushState.restore();
+  window.history.back.restore();
+});
  
-test("click on the image opens the overlay", t => {
+test.serial("click on the image opens the overlay", t => {
   const {document, slider} = t.context;
 
   t.false(slider.elements.overlay.classList.contains("content-slider__overlay--is-visible"));
@@ -31,17 +47,23 @@ test("click on the image opens the overlay", t => {
 });
 
 
-test("click on the close icon closes the overlay", t => {
-  const {document, slider} = t.context;
+test.serial("click on the close icon closes the overlay", t => {
+  const {document, slider, window, pushStateSpy, backSpy} = t.context;
 
-  slider.openOverlay();
+  t.is(backSpy.callCount, 0);
+
+  slider.openOverlay(false);
   t.true(slider.elements.overlay.classList.contains("content-slider__overlay--is-visible"));
-
+  
   slider.elements.closeIcon.click();
   t.false(slider.elements.overlay.classList.contains("content-slider__overlay--is-visible"));
+
+  t.is(backSpy.callCount, 1);
+
+
 });
 
-test.cb("[toggleCaption] click on caption icon shows the caption", t => {
+test.serial.cb("[toggleCaption] click on caption icon shows the caption", t => {
   const {document, slider} = t.context;
 
   t.false(slider.elements.caption.classList.contains(slider.cssClasses.captionModVisible));
@@ -59,7 +81,7 @@ test.cb("[toggleCaption] click on caption icon shows the caption", t => {
   }, 1);
 });
 
-test.cb("[toggleCaption] click on caption again hides the caption", t => {
+test.serial.cb("[toggleCaption] click on caption again hides the caption", t => {
   const {document, slider} = t.context;
 
   slider.toggleCaption();
@@ -75,7 +97,7 @@ test.cb("[toggleCaption] click on caption again hides the caption", t => {
   }, 1);
 });
 
-test.skip("click on next changes the slider and update the nav position", t => {
+test.serial.skip("click on next changes the slider and update the nav position", t => {
   const {document, slider} = t.context;
 
   slider.openOverlay();
