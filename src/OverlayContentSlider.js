@@ -143,7 +143,15 @@ export default class OverlayContentSlider {
 
       // show overlay when linked
       if(this._isOverlayOpen()) {
-        this.openOverlay(false);
+        let hash = window.location.hash;
+
+        // replace state without hash
+        this._replaceState();
+
+        // add state with hash
+        this._addState(hash);
+
+        this.openOverlay();
       }
     }, 0);
   }
@@ -186,6 +194,7 @@ export default class OverlayContentSlider {
   _setupHandlers() {
     this.elements.triggerContent.forEach((elem, elemIndex) => {
       elem.addEventListener("click", (event) => {
+        this._addState();
         this.openOverlay();
         this.swiper.slideTo(elemIndex);
         this.swiper.hashnav.setHash();
@@ -394,11 +403,16 @@ export default class OverlayContentSlider {
    * reason: to close the overlay on history.back()
    * @private
    */
-  _addState() {
+  _addState(hash?: string = "") {
     if(this.swiperOptions.replaceState && window.history.pushState) {
-      window.history.pushState("", document.title, window.location.pathname);
+      window.history.pushState("", document.title, window.location.pathname + hash);
     }
+  }
 
+  _replaceState(hash?: string = "") {
+    if(this.swiperOptions.replaceState && window.history.replaceState) {
+      window.history.replaceState("", document.title, window.location.pathname + hash);
+    }
   }
   
   _isOverlayOpen(): boolean {
@@ -540,11 +554,7 @@ export default class OverlayContentSlider {
    *
    * @public
    */
-  openOverlay(modifyHistory: boolean = true) {
-    if(modifyHistory) {
-      this._addState();
-    }
-
+  openOverlay() {
     // overlay must be visible, before swiper gets initialized
     this.elements.overlay.classList.add(this.cssClasses.overlayModVisible);
     this._saveScrollPosition();
@@ -626,7 +636,7 @@ export default class OverlayContentSlider {
    */
   onHistoryChange() {
     if(window.location.hash && window.location.hash.match(/#cs-/)) {
-      this.openOverlay(false);
+      this.openOverlay();
     } else {
       this.closeOverlay(false);
     }
