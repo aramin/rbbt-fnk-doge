@@ -4159,6 +4159,10 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@~1.1.0:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+reactive-panzoom@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/reactive-panzoom/-/reactive-panzoom-0.2.3.tgz#04f83be6fa9411eb0740dd138de96ee39f9b764a"
+
 read-all-stream@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/read-all-stream/-/read-all-stream-3.1.0.tgz#35c3e177f2078ef789ee4bfafa4373074eaef4fa"

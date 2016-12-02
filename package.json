@@ -43,6 +43,7 @@
     "flow-type": "^1.0.1",
     "lodash.merge": "^4.6.0",
     "nyc": "^8.3.2",
+    "reactive-panzoom": "^0.2.3",
     "release-it": "^2.4.3",
     "sinon": "^1.17.6",
     "swiper": "^3.4.0",
@@ -57,7 +58,7 @@
     ],
     "require": [
       "babel-register",
-      "./src/testHelper.js"
+      "ava-browser-fixture"
     ],
     "babel": "inherit"
   },

@@ -10,9 +10,12 @@ import Swiper from "swiper";
 import merge from "lodash.merge";
 import EventEmitter from "eventemitter3";
 
-import ContentSliderOptions from "./ContentSliderOptions";
 import ContentSliderCSSClasses from './ContentSliderCSSClasses';
-import {ContentSliderEvent} from "./ContentSliderTypes";
+import {ContentSliderEvent, ContentSliderOptions} from "./ContentSliderTypes";
+
+import * as ReactivePanZoomModule from 'reactive-panzoom';
+
+const ReactivePanZoom = ReactivePanZoomModule.default;
 
 /**
  * default options
@@ -92,6 +95,8 @@ export default class OverlayContentSlider {
    * @type {boolean}
    */
   eventEmitterActive: boolean;
+
+  reactivePanZoom: ReactivePanZoom;
 
   /**
    * ContentSlider constructor
@@ -185,6 +190,18 @@ export default class OverlayContentSlider {
     this.elements.navPosition = OverlayContentSlider._queryByClassName(this.cssClasses.navPosition);
 
     this._createSliderElement();
+
+    this.reactivePanZoom = new ReactivePanZoom(this.elements.elementsContainer);
+
+    this.reactivePanZoom.on("zoom-active", () => {
+      this.elements.elementsContainer.style.backgroundColor = "blue";
+      this.swiper.detachEvents();
+    });
+
+    this.reactivePanZoom.on("zoom-inactive", () => {
+      this.elements.elementsContainer.style.backgroundColor = "yellow";
+      this.swiper.attachEvents();
+    });
   }
 
   /**
