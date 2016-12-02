@@ -4,7 +4,7 @@ import test from 'ava';
 import {SimpleContentSlider} from "./ContentSlider";
 import {Fixture} from "ava-browser-fixture";
 
-test.beforeEach('setup document', t => Fixture("./fixtures/simple.html", (document) => {
+test.beforeEach('setup document', t => Fixture("./src/fixtures/simple.html", (document) => {
   t.context.document = document;
 }));
 

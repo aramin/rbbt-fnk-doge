@@ -5,7 +5,7 @@ import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture, window} from "ava-browser-fixture";
 import sinon from "sinon";
 
-test.serial.beforeEach('setup fixture', t => Fixture("./fixtures/overlay.html", (document) => {
+test.serial.beforeEach('setup fixture', t => Fixture("./src/fixtures/overlay.html", (document) => {
   t.context.document = document;
   t.context.window = window;
 }));

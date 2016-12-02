@@ -4,29 +4,13 @@ var merge = require('webpack-merge');
 var TARGET = process.env.npm_lifecycle_event;
 
 var base = {
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a valid name to reference
-        query: {
-          presets: ['es2015'],
-          plugins: [
-            "syntax-flow",
-            "tcomb",
-            "transform-flow-strip-types"
-          ]
-        }
-      }
-    ]
-  }
+
 };
 
 
 if (TARGET == 'build') {
   // Build the module bundle to the dist/ folder
-  module.exports = merge(base, {
+  module.exports = {
     entry: {
       contentSlider: "./src/ContentSlider.js"
     },
@@ -43,11 +27,27 @@ if (TARGET == 'build') {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
       })
-    ]
-  });
+    ],
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel', // 'babel-loader' is also a valid name to reference
+          query: {
+            presets: ['es2015'],
+            plugins: [
+              "syntax-flow",
+              "transform-flow-strip-types"
+            ]
+          }
+        }
+      ]
+    }
+  };
 } else if (TARGET == 'start') {
   // Start the development mode (webpack-dev-server) and serve `dev/index.html`
-  module.exports = merge(base, {
+  module.exports = {
     entry: {
       contentSlider: "./src/ContentSlider.js"
     },
@@ -60,8 +60,30 @@ if (TARGET == 'build') {
     devtool: "#inline-source-map",
     devServer: {
       contentBase: 'dev/'
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel', // 'babel-loader' is also a valid name to reference
+          query: {
+            presets: ['es2015'],
+            plugins: [
+              "syntax-flow",
+              "tcomb",
+              "transform-flow-strip-types"
+            ],
+            env: {
+              development: {
+                sourceMaps: "inline"
+              }
+            }
+          }
+        }
+      ]
     }
-  });
+  };
 } else {
   module.exports = base;
 }

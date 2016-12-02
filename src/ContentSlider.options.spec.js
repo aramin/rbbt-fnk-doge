@@ -7,7 +7,7 @@ import {Fixture} from "ava-browser-fixture";
 const ANY_OVERLAY_SELECTOR = "any-overlay-selector";
 const ANY_SWIPER_SLIDE_CLASS = "any-swiper-slide-class";
 
-test.beforeEach('setup document', t => Fixture("./fixtures/overlay.html", (document) => {
+test.beforeEach('setup document', t => Fixture("./src/fixtures/overlay.html", (document) => {
   t.context.document = document;
 }));
 

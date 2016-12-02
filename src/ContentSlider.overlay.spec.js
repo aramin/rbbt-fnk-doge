@@ -4,7 +4,7 @@ import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "ava-browser-fixture";
 
-test.beforeEach('setup document', t => Fixture("./fixtures/overlay.html", (document) => {
+test.beforeEach('setup document', t => Fixture("./src/fixtures/overlay.html", (document) => {
   t.context.document = document;
 }));
 
@@ -27,7 +27,7 @@ test.todo("bemCssClass change name of the css classes");
 test.todo("cssClasses can be overwritten");
 
 
-test('[_setupContent] must setup all UI elements', t => Fixture("./fixtures/overlay.html", (document) => {
+test('[_setupContent] must setup all UI elements', t => Fixture("./src/fixtures/overlay.html", (document) => {
   const slider = t.context.slider;
 
   t.truthy(slider.elements.overlay);

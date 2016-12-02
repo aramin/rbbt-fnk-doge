@@ -4,7 +4,7 @@ import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "ava-browser-fixture";
 
-test('is not a single', t => Fixture("./fixtures/overlay.html", (document) => {
+test('is not a single', t => Fixture("./src/fixtures/overlay.html", (document) => {
   // when:
   let
     options = {
