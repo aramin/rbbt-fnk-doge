@@ -2,7 +2,7 @@
 
 import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";
-import {Fixture} from "./testHelper";
+import {Fixture} from "ava-browser-fixture";
 
 test.beforeEach('setup document', t => Fixture("./fixtures/overlay.html", (document) => {
   t.context.document = document;

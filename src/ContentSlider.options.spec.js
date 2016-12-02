@@ -2,7 +2,7 @@
 
 import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";
-import {Fixture} from "./testHelper";
+import {Fixture} from "ava-browser-fixture";
 
 const ANY_OVERLAY_SELECTOR = "any-overlay-selector";
 const ANY_SWIPER_SLIDE_CLASS = "any-swiper-slide-class";
