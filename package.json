@@ -61,19 +61,6 @@
       "ava-browser-fixture"
     ]
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ],
-    "plugins": [
-      "syntax-flow",
-      "tcomb",
-      "transform-flow-strip-types",
-      "transform-async-to-generator",
-      "espower",
-      "transform-runtime"
-    ]
-  },
   "nyc": {
     "include": [
       "src/ContentSlider.js",

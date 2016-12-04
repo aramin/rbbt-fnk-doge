@@ -33,14 +33,7 @@ if (TARGET == 'build') {
         {
           test: /\.js$/,
           exclude: /(node_modules|bower_components)/,
-          loader: 'babel', // 'babel-loader' is also a valid name to reference
-          query: {
-            presets: ['es2015'],
-            plugins: [
-              "syntax-flow",
-              "transform-flow-strip-types"
-            ]
-          }
+          loader: 'babel' // 'babel-loader' is also a valid name to reference
         }
       ]
     }
@@ -52,10 +45,10 @@ if (TARGET == 'build') {
       contentSlider: "./src/ContentSlider.js"
     },
     output: {
-        path: "dev",
-        filename: "ContentSlider.dev.js",
-        libraryTarget: "var",
-        library: "ContentSliderModule"
+      path: "dev",
+      filename: "ContentSlider.dev.js",
+      libraryTarget: "var",
+      library: "ContentSliderModule"
     },
     devtool: "#inline-source-map",
     devServer: {
@@ -68,16 +61,18 @@ if (TARGET == 'build') {
           exclude: /(node_modules|bower_components)/,
           loader: 'babel', // 'babel-loader' is also a valid name to reference
           query: {
-            presets: ['es2015'],
-            plugins: [
+            "babelrc": false,
+            "presets": ["es2015"],
+            "plugins": [
               "syntax-flow",
               "tcomb",
               "transform-flow-strip-types"
-            ],
-            env: {
-              development: {
-                sourceMaps: "inline"
-              }
+            ]
+
+          },
+          env: {
+            "development": {
+              "sourceMaps": "inline"
             }
           }
         }
