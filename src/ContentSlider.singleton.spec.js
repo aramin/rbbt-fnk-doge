@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 import test from 'ava';
 import {OverlayContentSlider} from "./ContentSlider";

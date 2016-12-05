@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 import EventEmitter from "eventemitter3";
 

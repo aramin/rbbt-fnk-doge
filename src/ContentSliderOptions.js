@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 import {QuerySelector} from "./ContentSliderTypes";
 

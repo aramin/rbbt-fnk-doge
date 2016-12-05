@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 export default class DogeHelper {
 

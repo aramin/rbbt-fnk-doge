@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 /**
  * The Content-Slider Module.
