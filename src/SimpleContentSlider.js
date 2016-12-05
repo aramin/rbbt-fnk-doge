@@ -1,10 +1,9 @@
-// @tcomb
+// @flow
 
 import Swiper from "swiper";
-import ContentSliderCSSClasses from "./ContentSliderCSSClasses";
 import EventEmitter from "eventemitter3";
 import merge from "lodash.merge";
-import {ClassName, ContentSliderEvent} from "./ContentSliderTypes";
+import {ClassName, ContentSliderEvent, ContentSliderCSSClasses} from "./ContentSliderTypes";
 
 type SimpleSliderOptions = {
   root: Element,
