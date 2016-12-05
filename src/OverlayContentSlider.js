@@ -1,4 +1,4 @@
-// @tcomb
+// @flow
 
 /**
  * The Overlay Content-Slider Module
@@ -10,8 +10,7 @@ import Swiper from "swiper";
 import merge from "lodash.merge";
 import EventEmitter from "eventemitter3";
 
-import ContentSliderCSSClasses from './ContentSliderCSSClasses';
-import {ContentSliderEvent, ContentSliderOptions} from "./ContentSliderTypes";
+import {ContentSliderEvent, ContentSliderOptions, ContentSliderCSSClasses} from "./ContentSliderTypes";
 
 import * as ReactivePanZoomModule from 'reactive-panzoom';
 
@@ -49,6 +48,7 @@ export default class OverlayContentSlider {
     elementsContainer: Element,
     toggleCaptionIcon: Element,
     closeIcon: Element,
+    nav: Element,
     navPosition: Element
   };
 
@@ -187,21 +187,12 @@ export default class OverlayContentSlider {
     this.elements.toggleCaptionIcon = OverlayContentSlider._queryByClassName(this.cssClasses.toggleCaptionIcon);
     this.elements.closeIcon = OverlayContentSlider._queryByClassName(this.cssClasses.closeIcon);
 
+    this.elements.nav = OverlayContentSlider._queryByClassName(this.cssClasses.nav);
     this.elements.navPosition = OverlayContentSlider._queryByClassName(this.cssClasses.navPosition);
 
     this._createSliderElement();
 
     this.reactivePanZoom = new ReactivePanZoom(this.elements.elementsContainer);
-
-    this.reactivePanZoom.on("zoom-active", () => {
-      this.elements.elementsContainer.style.backgroundColor = "blue";
-      this.swiper.detachEvents();
-    });
-
-    this.reactivePanZoom.on("zoom-inactive", () => {
-      this.elements.elementsContainer.style.backgroundColor = "yellow";
-      this.swiper.attachEvents();
-    });
   }
 
   /**
@@ -247,6 +238,16 @@ export default class OverlayContentSlider {
     // orientation change handler
     window.addEventListener("orientationchange", (): void => {
       this._recalculateSizes();
+    });
+
+    this.reactivePanZoom.on("zoom-active", () => {
+      this.eventEmitter.emit("zoom-active");
+      this.swiper.detachEvents();
+    });
+
+    this.reactivePanZoom.on("zoom-inactive", () => {
+      this.swiper.attachEvents();
+      this.eventEmitter.emit("zoom-inactive");
     });
   }
 
