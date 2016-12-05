@@ -7,7 +7,9 @@ type ContentSliderEvent = "open"
     | "caption_toggle"
     | "next"
     | "prev"
-    | "init";
+    | "init"
+    | "zoom-active"
+    | "zoom-inactive";
 
 declare namespace ContentSlider {
 
