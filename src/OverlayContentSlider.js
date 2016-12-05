@@ -224,6 +224,17 @@ export default class OverlayContentSlider {
       }
     });
 
+    // disallow pinch-zoom on navbar
+    this.elements.nav.addEventListener("touchmove", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+
+    this.elements.caption.addEventListener("touchmove", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+
     // key handlers
     document.addEventListener("keyup", (event) => {
       // escape key
