@@ -59,6 +59,17 @@ declare namespace ContentSliderModule {
 
         // the swiper instance
         public swiper: any;
+        public elements: {
+            content: Array<Element>,
+            triggerContent: Array<Element>,
+            overlay: Element,
+            caption: Element,
+            elementsContainer: Element,
+            toggleCaptionIcon: Element,
+            closeIcon: Element,
+            nav: Element,
+            navPosition: Element
+        };
 
         public openOverlay(): void;
 
