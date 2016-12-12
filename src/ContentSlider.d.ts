@@ -1,30 +1,40 @@
-export = ContentSlider;
 
-type QuerySelector = string;
-type ClassName = string;
-type ContentSliderEvent = "open"
-    | "close"
-    | "caption_toggle"
-    | "next"
-    | "prev"
-    | "init"
-    | "zoom-active"
-    | "zoom-inactive";
+declare namespace ContentSliderModule {
+    type QuerySelector = string;
+    type ClassName = string;
+    type ContentSliderEvent = "open"
+        | "close"
+        | "caption_toggle"
+        | "next"
+        | "prev"
+        | "init"
+        | "zoom-active"
+        | "zoom-inactive";
 
-declare namespace ContentSlider {
+    interface ContentSliderModule {
+        OverlayContentSlider: OverlayContentSlider;
+        SimpleContentSlider: SimpleContentSlider;
+    }
 
-    export interface ContentSliderOptions {
+    interface OverlayContentSliderOptions {
         content: QuerySelector;
         triggerSelector: QuerySelector;
         overlay: QuerySelector;
         bemBlockName?: string;
         swiperBemBlockName?: string;
-        extractSliderElement:(contentElement: Element) => Element;
-        extractCaption:(contentElement: Element) => string;
-        extractHashnavToken:(contentElement: Element, index: number) => string;
+        extractSliderElement: (contentElement: Element) => Element;
+        extractCaption: (contentElement: Element) => string;
+        extractHashnavToken: (contentElement: Element, index: number) => string;
     }
 
-    export interface ContentSliderCSSClasses {
+    interface SimpleContentSliderOptions {
+        root: Element;
+        container: QuerySelector;
+        bemBlockName?: string;
+        swiperBemBlockName?: string;
+    }
+
+    interface ContentSliderCSSClasses {
         overlay?: ClassName;
         overlayModVisible?: ClassName;
         nav?: ClassName;
@@ -34,41 +44,43 @@ declare namespace ContentSlider {
         elementContainer?: ClassName;
         wrapper?: ClassName;
         element?: ClassName;
-        icon?: ClassName,
-        toggleCaptionIcon?: ClassName,
-        toggleCaptionIconModActive?: ClassName,
-        prevIcon?: ClassName,
-        nextIcon?: ClassName,
-        closeIcon?: ClassName,
+        icon?: ClassName;
+        toggleCaptionIcon?: ClassName;
+        toggleCaptionIconModActive?: ClassName;
+        prevIcon?: ClassName;
+        nextIcon?: ClassName;
+        closeIcon?: ClassName;
     }
 
     export class OverlayContentSlider {
-        constructor(options: ContentSlider.ContentSliderOptions,
-                    cssClasses?: ContentSlider.ContentSliderCSSClasses,
+        constructor(options: OverlayContentSliderOptions,
+                    cssClasses?: ContentSliderCSSClasses,
                     swiperOptions?: any);
 
-        openOverlay(): void;
-
-        closeOverlay(): void;
-
-        toggleCaption(): void;
-
-        on(event:ContentSliderEvent, callback:(...args: any[]) => void);
-
-        onHistoryChange(): void;
-
         // the swiper instance
-        swiper: any;
+        public swiper: any;
+
+        public openOverlay(): void;
+
+        public closeOverlay(): void;
+
+        public toggleCaption(): void;
+
+        public on(event: ContentSliderEvent, callback: (...args: any[]) => void): void;
+
+        public onHistoryChange(): void;
     }
 
     export class SimpleContentSlider {
-        constructor(options: ContentSlider.ContentSliderOptions,
-                    cssClasses?: ContentSlider.ContentSliderCSSClasses,
+        constructor(options: SimpleContentSliderOptions,
+                    cssClasses?: ContentSliderCSSClasses,
                     swiperOptions?: any);
 
-        on(event:ContentSliderEvent, callback:(...args: any[]) => void);
-
         // the swiper instance
-        swiper: any;
+        public swiper: any;
+
+        public on(event: ContentSliderEvent, callback: (...args: any[]) => void): void;
     }
 }
+
+export = { OverlayContentSlider: ContentSliderModule.OverlayContentSlider, SimpleContentSlider: ContentSliderModule.SimpleContentSlider };

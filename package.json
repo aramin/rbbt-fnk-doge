@@ -3,7 +3,7 @@
   "version": "2.2.2",
   "description": "A Content Slider micro library",
   "main": "dist/ContentSlider.min.js",
-  "typings": "src/ContentSlider.d.ts",
+  "typings": "./src/ContentSlider.d.ts",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "BABEL_ENV=production webpack -p",
