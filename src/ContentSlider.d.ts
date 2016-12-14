@@ -94,4 +94,4 @@ declare namespace ContentSliderModule {
     }
 }
 
-export = { OverlayContentSlider: ContentSliderModule.OverlayContentSlider, SimpleContentSlider: ContentSliderModule.SimpleContentSlider };
+export = ContentSliderModule;
