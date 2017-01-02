@@ -204,7 +204,7 @@ export default class OverlayContentSlider {
       elem.addEventListener("click", (event) => {
         this._addState();
         this.openOverlay();
-        this.swiper.slideTo(elemIndex);
+        this.swiper.slideTo(elemIndex, 0);
         this.swiper.hashnav.setHash();
         this._updateCaption(elemIndex);
       });
