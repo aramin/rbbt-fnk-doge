@@ -108,12 +108,8 @@ export default class OverlayContentSlider {
    */
   constructor(options: ContentSliderOptions, cssClasses?: ContentSliderCSSClasses, swiperOptions?) {
     // setup options and defaults
-    this.elements = {
-      content: [],
-      triggerContent: []
-    };
-    this.captions = {};
-    this.scrollPosition = [0, 0];
+    this._refreshState();
+
     this.eventEmitter = new EventEmitter();
 
     // options
@@ -140,6 +136,7 @@ export default class OverlayContentSlider {
     // setup
     this._setupContent();
     this._setupHandlers();
+    this._initSwiper();
 
     // call this in the next tick, when the event loop ist empty and all event listeners are active
     window.setTimeout( () => {
@@ -161,7 +158,41 @@ export default class OverlayContentSlider {
     }, 0);
   }
 
+  refresh() {
+    if(this.swiper) {
+      // destroy swiper
+      this._destroySwiper();
+
+      // remove old wrapper-element
+      while(this.elements.elementsContainer.firstChild) {
+        console.log('REMOVE CHILD NODE:', this.elements.elementsContainer.firstChild.outerHTML);
+        this.elements.elementsContainer.removeChild(this.elements.elementsContainer.firstChild);
+      }
+    }
+
+    // empty state
+    this._refreshState();
+
+    // reinit state
+    this._setupContent();
+
+    // reinit swiper
+    this._initSwiper();
+
+    // reinit handlers
+    this._setupHandlers();
+  }
+
   // ## SETUP
+
+  _refreshState() {
+    this.elements = {
+      content: [],
+      triggerContent: []
+    };
+    this.captions = {};
+    this.scrollPosition = [0, 0];
+  }
 
   /**
    * setup content
@@ -291,6 +322,12 @@ export default class OverlayContentSlider {
         this.eventEmitter.emit("next", swiper.activeIndex);
       }
     });
+  }
+
+  _destroySwiper() {
+    this.swiper.detachEvents()
+    this.swiper.destroy(true);
+    delete this.swiper;
   }
 
   // ## DOM Helper
@@ -603,9 +640,9 @@ export default class OverlayContentSlider {
    */
   closeOverlay(modifyHistory: boolean = true) {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
+    OverlayContentSlider._setDocumentScrollbar(true);
 
     if(modifyHistory) {
-      OverlayContentSlider._setDocumentScrollbar(true);
       this._restoreScrollPosition();
 
       if(this.eventEmitterActive) {

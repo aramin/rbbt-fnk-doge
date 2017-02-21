@@ -80,6 +80,8 @@ declare namespace ContentSliderModule {
         public on(event: ContentSliderEvent, callback: (...args: any[]) => void): void;
 
         public onHistoryChange(): void;
+
+        public refresh(): void;
     }
 
     export class SimpleContentSlider {
