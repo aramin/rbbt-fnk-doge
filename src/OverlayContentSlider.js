@@ -136,7 +136,6 @@ export default class OverlayContentSlider {
     // setup
     this._setupContent();
     this._setupHandlers();
-    this._initSwiper();
 
     // call this in the next tick, when the event loop ist empty and all event listeners are active
     window.setTimeout( () => {
@@ -165,7 +164,6 @@ export default class OverlayContentSlider {
 
       // remove old wrapper-element
       while(this.elements.elementsContainer.firstChild) {
-        console.log('REMOVE CHILD NODE:', this.elements.elementsContainer.firstChild.outerHTML);
         this.elements.elementsContainer.removeChild(this.elements.elementsContainer.firstChild);
       }
     }
