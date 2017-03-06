@@ -118,7 +118,7 @@ export default class OverlayContentSlider {
     // css classes
     const defaultCssClasses = this._generateCssClassesForBlockName(this.options.bemBlockName);
 
-    if(cssClasses) {
+    if (cssClasses) {
       this.cssClasses = merge(defaultCssClasses, cssClasses);
     } else {
       this.cssClasses = defaultCssClasses
@@ -127,7 +127,7 @@ export default class OverlayContentSlider {
     // swiper options
     let swiperDefaultOptions = this._generateSwiperDefaultOptionsForBlockName(this.options.swiperBemBlockName);
 
-    if(swiperOptions) {
+    if (swiperOptions) {
       this.swiperOptions = merge(swiperDefaultOptions, swiperOptions);
     } else {
       this.swiperOptions = swiperDefaultOptions;
@@ -138,34 +138,28 @@ export default class OverlayContentSlider {
     this._setupHandlers();
 
     // call this in the next tick, when the event loop ist empty and all event listeners are active
-    window.setTimeout( () => {
+    window.setTimeout(() => {
       // send init event
       this.eventEmitter.emit("init");
 
       // show overlay when linked
-      if(this._isOverlayOpen()) {
-        let hash = window.location.hash;
-
-        // replace state without hash
-        this._replaceState();
-
-        // add state with hash
-        this._addState(hash);
-
+      if (this._isOverlayOpen()) {
         this.openOverlay();
       }
     }, 0);
   }
 
   refresh() {
-    if(this.swiper) {
+    const swiperInitialized: boolean = this.swiper !== undefined;
+
+    if (swiperInitialized) {
       // destroy swiper
       this._destroySwiper();
+    }
 
-      // remove old wrapper-element
-      while(this.elements.elementsContainer.firstChild) {
-        this.elements.elementsContainer.removeChild(this.elements.elementsContainer.firstChild);
-      }
+    // remove old wrapper-element
+    while (this.elements.elementsContainer.firstChild) {
+      this.elements.elementsContainer.removeChild(this.elements.elementsContainer.firstChild);
     }
 
     // empty state
@@ -174,14 +168,17 @@ export default class OverlayContentSlider {
     // reinit state
     this._setupContent();
 
-    // reinit swiper
-    this._initSwiper();
+    if (swiperInitialized) {
+
+      // reinit swiper
+      this._initSwiper();
+    }
 
     // reinit handlers
     this._setupHandlers();
   }
 
-  // ## SETUP
+// ## SETUP
 
   _refreshState() {
     this.elements = {
@@ -200,7 +197,7 @@ export default class OverlayContentSlider {
     [].forEach.call(document.querySelectorAll(this.options.content), (image) => {
       this.elements.content.push(image);
 
-      if(this.options.triggerSelector) {
+      if (this.options.triggerSelector) {
         let triggerElem: Element = image.querySelector(this.options.triggerSelector);
         this.elements.triggerContent.push(triggerElem || image);
       } else {
@@ -248,7 +245,7 @@ export default class OverlayContentSlider {
     });
 
     this.elements.caption.addEventListener("transitionend", (ev) => {
-      if(!this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
+      if (!this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
         this.elements.caption.style.display = "none";
       }
     });
@@ -267,8 +264,8 @@ export default class OverlayContentSlider {
     // key handlers
     document.addEventListener("keyup", (event) => {
       // escape key
-      if(event.keyCode === 27) {
-        if(this._isOverlayOpen()) {
+      if (event.keyCode === 27) {
+        if (this._isOverlayOpen()) {
           this.closeOverlay();
         }
       }
@@ -296,7 +293,7 @@ export default class OverlayContentSlider {
    * @private
    */
   _initSwiper() {
-    if(this.swiper) {
+    if (this.swiper) {
       return;
     }
 
@@ -310,13 +307,13 @@ export default class OverlayContentSlider {
     });
 
     this.swiper.on("onSlidePrevEnd", swiper => {
-      if(this.eventEmitterActive) {
+      if (this.eventEmitterActive) {
         this.eventEmitter.emit("prev", swiper.activeIndex);
       }
     });
 
     this.swiper.on("onSlideNextEnd", swiper => {
-      if(this.eventEmitterActive) {
+      if (this.eventEmitterActive) {
         this.eventEmitter.emit("next", swiper.activeIndex);
       }
     });
@@ -328,7 +325,7 @@ export default class OverlayContentSlider {
     delete this.swiper;
   }
 
-  // ## DOM Helper
+// ## DOM Helper
 
   /**
    * create the slider elements
@@ -372,13 +369,13 @@ export default class OverlayContentSlider {
    * @returns {Element}
    * @private
    */
-  static _createSwiperElementByClassName(className: string, tagName?: string = "div"): Element {
+  static _createSwiperElementByClassName(className: string, tagName ?: string = "div"): Element {
     let element = document.createElement(tagName);
     element.classList.add(className);
     return element;
   }
 
-  // ## Utilities
+// ## Utilities
 
   /**
    * update the caption text
@@ -390,7 +387,7 @@ export default class OverlayContentSlider {
    */
   _updateCaption(index: number) {
     // need to use innerHTML, as caption can contain HTML
-    if(this.captions[index]) {
+    if (this.captions[index]) {
       this.elements.caption.innerHTML = this.captions[index];
     } else {
       this.elements.caption.innerHTML = "";
@@ -402,7 +399,7 @@ export default class OverlayContentSlider {
    * @private
    */
   _updateNavPosition() {
-    if(this.swiper) {
+    if (this.swiper) {
       let
         activeIndex = this.swiper.activeIndex + 1,
         lastSlideIndex = this.swiper.slides.length;
@@ -419,7 +416,7 @@ export default class OverlayContentSlider {
    * @private
    */
   _recalculateSizes() {
-    if(this.swiper) {
+    if (this.swiper) {
       this.swiper.updateContainerSize();
       this.swiper.updateSlidesSize();
       this.swiper.slideTo(this.swiper.activeIndex);
@@ -433,10 +430,11 @@ export default class OverlayContentSlider {
    * @private
    * @static
    */
-  static _queryByClassName(className: string): Element {
+  static
+  _queryByClassName(className: string): Element {
     let elem = document.querySelector(`.${className}`);
 
-    if(elem === null) {
+    if (elem === null) {
       console.warn(`[doge] unable to query elem by class-name: ${className}`);
     }
 
@@ -449,9 +447,9 @@ export default class OverlayContentSlider {
    * @static
    */
   _clearHashnav() {
-    if(window.history) {
+    if (window.history) {
       // use replaceState or pushState
-      if(this.swiperOptions.replaceState) {
+      if (this.swiperOptions.replaceState) {
         window.history.replaceState("", document.title, window.location.pathname + window.location.search);
       } else {
         window.history.pushState("", document.title, window.location.pathname + window.location.search);
@@ -473,12 +471,6 @@ export default class OverlayContentSlider {
     }
   }
 
-  _replaceState(hash?: string = "") {
-    if(this.swiperOptions.replaceState && window.history.replaceState) {
-      window.history.replaceState("", document.title, window.location.pathname + hash);
-    }
-  }
-  
   _isOverlayOpen(): boolean {
     return window.location.hash && window.location.hash.match(/#cs-/);
   }
@@ -488,8 +480,9 @@ export default class OverlayContentSlider {
    * @param {boolean} enable
    * @private
    */
-  static _setDocumentScrollbar(enable: boolean) {
-    if(enable) {
+  static
+  _setDocumentScrollbar(enable: boolean) {
+    if (enable) {
       document.documentElement.style.overflow = "auto";
     } else {
       document.documentElement.style.overflow = "hidden";
@@ -521,7 +514,7 @@ export default class OverlayContentSlider {
    */
   _generateCssClassesForBlockName(block: string): ContentSliderCSSClasses {
     let generateClassNameMakro = (element, modifier?) => {
-      if(modifier) {
+      if (modifier) {
         return `${block}__${element}--${modifier}`;
       }
       return `${block}__${element}`;
@@ -640,18 +633,14 @@ export default class OverlayContentSlider {
     this.elements.overlay.classList.remove(this.cssClasses.overlayModVisible);
     OverlayContentSlider._setDocumentScrollbar(true);
 
-    if(modifyHistory) {
+    if (modifyHistory) {
       this._restoreScrollPosition();
 
-      if(this.eventEmitterActive) {
+      if (this.eventEmitterActive) {
         this.eventEmitter.emit("close");
       }
 
-      if(this.swiperOptions.replaceState) {
-        window.history.back();
-      } else {
-        this._clearHashnav();
-      }
+      this._clearHashnav();
     }
 
     this.eventEmitterActive = false;
@@ -663,14 +652,14 @@ export default class OverlayContentSlider {
    * @public
    */
   toggleCaption() {
-    if(this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
+    if (this.elements.caption.classList.contains(this.cssClasses.captionModVisible)) {
       this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
       this.elements.toggleCaptionIcon.classList.remove(this.cssClasses.toggleCaptionIconModActive);
-      if(this.eventEmitterActive) {
+      if (this.eventEmitterActive) {
         this.eventEmitter.emit("caption_toggle", false);
       }
     } else {
-      if(this.swiper) {
+      if (this.swiper) {
         this._updateCaption(this.swiper.activeIndex);
       }
       this.elements.toggleCaptionIcon.classList.add(this.cssClasses.toggleCaptionIconModActive);
@@ -681,7 +670,7 @@ export default class OverlayContentSlider {
         this.elements.caption.classList.add(this.cssClasses.captionModVisible);
       }, 0);
 
-      if(this.eventEmitterActive) {
+      if (this.eventEmitterActive) {
         this.eventEmitter.emit("caption_toggle", true);
       }
     }
@@ -699,7 +688,7 @@ export default class OverlayContentSlider {
    * @private
    */
   onHistoryChange() {
-    if(window.location.hash && window.location.hash.match(/#cs-/)) {
+    if (window.location.hash && window.location.hash.match(/#cs-/)) {
       this.openOverlay();
     } else {
       this.closeOverlay(false);
