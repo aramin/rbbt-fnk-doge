@@ -1,6 +1,7 @@
 
 html {
     box-sizing: border-box;
+    font-family: Verdana, sans-serif;
 }
 
 .c-content-slider__overlay {
@@ -63,6 +64,8 @@ html {
 }
 
 .c-content-slider__nav {
+    display: flex;
+    align-items: center;
     position: relative;
     flex-shrink: 0;
     align-self: flex-end;
@@ -88,13 +91,15 @@ html {
 }
 
 .c-content-slider__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 6.5vh;
     height: 6.5vh;
     min-width: 50px;
     min-height: 50px;
 
     float: left;
-    display: inline-block;
     border-left: 1px solid #edece8;
 
     font-size: calc(0.75em + 1vmin);
@@ -102,7 +107,7 @@ html {
     touch-action: manipulation
 }
 
-.c-content-slider__icon:active, .c-content-slider__toggle-caption-icon--is-active {
+.c-content-slider__icon:active {
     background-color: #edece8;
 }
 
