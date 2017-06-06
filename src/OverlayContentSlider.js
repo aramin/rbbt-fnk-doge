@@ -476,7 +476,7 @@ export default class OverlayContentSlider {
     }
 
     _isOverlayOpen(): boolean {
-        return window.location.hash && window.location.hash.match(/#cs-/);
+        return window.location.hash && window.location.hash.indexOf("#cs-") > -1
     }
 
     /**
