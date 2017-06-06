@@ -1,0 +1,10 @@
+.c-content-slider__nav {
+    display: flex;
+    align-items: center;
+}
+
+.c-content-slider__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
