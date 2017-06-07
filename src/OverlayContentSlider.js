@@ -140,7 +140,7 @@ export default class OverlayContentSlider {
         // call this in the next tick, when the event loop ist empty and all event listeners are active
         window.setTimeout(() => {
             // send init event
-            this.eventEmitter.emit("init");
+            this.eventEmitter.emit("weltn24-doge:init");
 
             // show overlay when linked
             if (this._isOverlayOpen()) {
@@ -278,13 +278,13 @@ export default class OverlayContentSlider {
         });
 
         this.reactivePanZoom.on("zoom-active", () => {
-            this.eventEmitter.emit("zoom-active");
+            this.eventEmitter.emit("weltn24-doge:zoom-active");
             this.swiper.detachEvents();
         });
 
         this.reactivePanZoom.on("zoom-inactive", () => {
             this.swiper.attachEvents();
-            this.eventEmitter.emit("zoom-inactive");
+            this.eventEmitter.emit("weltn24-doge:zoom-inactive");
         });
     }
 
@@ -312,13 +312,13 @@ export default class OverlayContentSlider {
 
         this.swiper.on("onSlidePrevEnd", swiper => {
             if (this.eventEmitterActive) {
-                this.eventEmitter.emit("prev", swiper.activeIndex);
+                this.eventEmitter.emit("weltn24-doge:prev", swiper.activeIndex);
             }
         });
 
         this.swiper.on("onSlideNextEnd", swiper => {
             if (this.eventEmitterActive) {
-                this.eventEmitter.emit("next", swiper.activeIndex);
+                this.eventEmitter.emit("weltn24-doge:next", swiper.activeIndex);
             }
         });
     }
@@ -627,7 +627,7 @@ export default class OverlayContentSlider {
         this._recalculateSizes();
 
         this.eventEmitterActive = true;
-        this.eventEmitter.emit("open");
+        this.eventEmitter.emit("weltn24-doge:open");
     }
 
     /**
@@ -643,7 +643,7 @@ export default class OverlayContentSlider {
             this._restoreScrollPosition();
 
             if (this.eventEmitterActive) {
-                this.eventEmitter.emit("close");
+                this.eventEmitter.emit("weltn24-doge:close");
             }
 
             this._clearHashnav();
@@ -662,7 +662,7 @@ export default class OverlayContentSlider {
             this.elements.caption.classList.remove(this.cssClasses.captionModVisible);
             this.elements.toggleCaptionIcon.classList.remove(this.cssClasses.toggleCaptionIconModActive);
             if (this.eventEmitterActive) {
-                this.eventEmitter.emit("caption_toggle", false);
+                this.eventEmitter.emit("weltn24-doge:caption_toggle", false);
             }
         } else {
             if (this.swiper) {
@@ -677,7 +677,7 @@ export default class OverlayContentSlider {
             }, 0);
 
             if (this.eventEmitterActive) {
-                this.eventEmitter.emit("caption_toggle", true);
+                this.eventEmitter.emit("weltn24-doge:caption_toggle", true);
             }
         }
     }

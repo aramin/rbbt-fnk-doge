@@ -65,13 +65,13 @@ export default class BaseContentSlider {
 
     this.swiper.on("onSlidePrevEnd", swiper => {
       if(this.eventEmitterActive) {
-        this.eventEmitter.emit("prev", swiper.activeIndex);
+        this.eventEmitter.emit("weltn24-doge:prev", swiper.activeIndex);
       }
     });
 
     this.swiper.on("onSlideNextEnd", swiper => {
       if(this.eventEmitterActive) {
-        this.eventEmitter.emit("next", swiper.activeIndex);
+        this.eventEmitter.emit("weltn24-doge:next", swiper.activeIndex);
       }
     });
   }
@@ -131,4 +131,4 @@ export default class BaseContentSlider {
       zoomContainerClass: `${block}__zoom-container`
     }
   }
-}  
+}

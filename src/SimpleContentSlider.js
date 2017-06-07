@@ -108,7 +108,7 @@ export default class SimpleContentSlider {
     // call this in the next tick, when the event loop ist empty and all event listeners are active
     window.setTimeout( () => {
       // send init event
-      this.eventEmitter.emit("init");
+      this.eventEmitter.emit("weltn24-doge:init");
     }, 0);
   }
 
@@ -133,11 +133,11 @@ export default class SimpleContentSlider {
     this.swiper = new Swiper(this.elements.container, this.swiperOptions);
 
     this.swiper.on("onSlidePrevEnd", swiper => {
-      this.eventEmitter.emit("prev", swiper.activeIndex);
+      this.eventEmitter.emit("weltn24-doge:prev", swiper.activeIndex);
     });
 
     this.swiper.on("onSlideNextEnd", swiper => {
-      this.eventEmitter.emit("next", swiper.activeIndex);
+      this.eventEmitter.emit("weltn24-doge:next", swiper.activeIndex);
     });
   }
 
