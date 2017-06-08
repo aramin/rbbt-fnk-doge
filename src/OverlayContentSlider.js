@@ -10,9 +10,9 @@ import Swiper from "swiper";
 import merge from "lodash.merge";
 import EventEmitter from "eventemitter3";
 
-import {ContentSliderEvent, ContentSliderOptions, ContentSliderCSSClasses} from "./ContentSliderTypes";
+import {ContentSliderCSSClasses, ContentSliderEvent, ContentSliderOptions} from "./ContentSliderTypes";
 
-import * as ReactivePanZoomModule from 'reactive-panzoom';
+import * as ReactivePanZoomModule from "reactive-panzoom";
 
 const ReactivePanZoom = ReactivePanZoomModule.default;
 
@@ -169,13 +169,11 @@ export default class OverlayContentSlider {
         this._setupContent();
 
         if (swiperInitialized) {
-
             // reinit swiper
             this._initSwiper();
-        }
 
-        // reinit handlers
-        this._setupHandlers();
+            this._updateCaption(this.swiper.activeIndex);
+        }
     }
 
 // ## SETUP
@@ -205,10 +203,9 @@ export default class OverlayContentSlider {
             }
         });
 
-        this.elements.overlay               = document.querySelector(this.options.overlay);
-        this.elements.elementsContainer     = OverlayContentSlider._queryByClassName(this.cssClasses.elementContainer);
-        this.elements.caption               = OverlayContentSlider._queryByClassName(this.cssClasses.caption);
-        this.elements.caption.style.display = "none";
+        this.elements.overlay           = document.querySelector(this.options.overlay);
+        this.elements.elementsContainer = OverlayContentSlider._queryByClassName(this.cssClasses.elementContainer);
+        this.elements.caption           = OverlayContentSlider._queryByClassName(this.cssClasses.caption);
 
         this.elements.toggleCaptionIcon = OverlayContentSlider._queryByClassName(this.cssClasses.toggleCaptionIcon);
         this.elements.closeIcon         = OverlayContentSlider._queryByClassName(this.cssClasses.closeIcon);
@@ -298,10 +295,6 @@ export default class OverlayContentSlider {
         }
 
         this.swiper = new Swiper(this.elements.elementsContainer, this.swiperOptions);
-
-        if (this.swiperOptions.showCaption) {
-            this.toggleCaption();
-        }
 
         this._updateNavPosition();
 
@@ -476,7 +469,7 @@ export default class OverlayContentSlider {
     }
 
     _isOverlayOpen(): boolean {
-        return window.location.hash && window.location.hash.indexOf("#cs-") > -1
+        return typeof window.location.hash !== "undefined" && window.location.hash.indexOf("#cs-") > -1;
     }
 
     /**
@@ -541,7 +534,6 @@ export default class OverlayContentSlider {
             // icons
             icon: generateClassNameMakro("icon"),
             toggleCaptionIcon: generateClassNameMakro("toggle-caption-icon"),
-            toggleCaptionIconModActive: generateClassNameMakro("toggle-caption-icon", "is-active"),
             prevIcon: generateClassNameMakro("prev-icon"),
             nextIcon: generateClassNameMakro("next-icon"),
             closeIcon: generateClassNameMakro("close-icon")
