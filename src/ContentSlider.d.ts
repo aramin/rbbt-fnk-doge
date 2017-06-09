@@ -46,7 +46,6 @@ declare namespace ContentSliderModule {
         element?: ClassName;
         icon?: ClassName;
         toggleCaptionIcon?: ClassName;
-        toggleCaptionIconModActive?: ClassName;
         prevIcon?: ClassName;
         nextIcon?: ClassName;
         closeIcon?: ClassName;

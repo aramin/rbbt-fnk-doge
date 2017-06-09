@@ -50,7 +50,6 @@ export type ContentSliderOptions = {
  * @property {ClassName} element - [optional]
  * @property {ClassName} icon - [optional]
  * @property {ClassName} toggleCaptionIcon - [optional]
- * @property {ClassName} toggleCaptionIconModActive - [optional]
  * @property {ClassName} prevIcon - [optional]
  * @property {ClassName} nextIcon - [optional]
  * @property {ClassName} closeIcon - [optional]
@@ -69,7 +68,6 @@ export type ContentSliderCSSClasses = {
   // icons
   icon?: ClassName,
   toggleCaptionIcon?: ClassName,
-  toggleCaptionIconModActive?: ClassName,
   prevIcon?: ClassName,
   nextIcon?: ClassName,
   closeIcon?: ClassName,
