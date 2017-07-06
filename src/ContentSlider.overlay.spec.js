@@ -65,6 +65,15 @@ test('[refresh] must re-init the swiper', t => {
     t.true(initSpy.called);
 });
 
+test('[refresh] must update the caption', t => {
+    t.context.slider._initSwiper();
+
+    const updateCaptionSpy = sinon.spy(t.context.slider, "_updateCaption");
+
+    t.context.slider.refresh();
+    t.true(updateCaptionSpy.called);
+});
+
 test.skip("check that swiper has been initialized correctly", t => {
     t.is(slider.swiper.slides.length, 1, "Swiper has been initialized with one slide");
 });

@@ -171,8 +171,6 @@ export default class OverlayContentSlider {
         if (swiperInitialized) {
             // reinit swiper
             this._initSwiper();
-
-            this._updateCaption(this.swiper.activeIndex);
         }
     }
 
@@ -294,7 +292,11 @@ export default class OverlayContentSlider {
             return;
         }
 
-        this.swiper = new Swiper(this.elements.elementsContainer, this.swiperOptions);
+        this.swiper = new Swiper(this.elements.elementsContainer, merge({}, this.swiperOptions, {
+            onInit: (swiper) => {
+                this._updateCaption(swiper.activeIndex);
+            }
+        }));
 
         this._updateNavPosition();
 
