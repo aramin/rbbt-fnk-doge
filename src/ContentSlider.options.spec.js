@@ -1,20 +1,20 @@
 // @tcomb
 
-import test from 'ava';
+import test from "ava";
 import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "ava-browser-fixture";
 
 const ANY_OVERLAY_SELECTOR = "any-overlay-selector";
 const ANY_SWIPER_SLIDE_CLASS = "any-swiper-slide-class";
 
-test.beforeEach('setup document', t => Fixture("./src/fixtures/overlay.html", (document) => {
+test.beforeEach("setup document", t => Fixture("./src/fixtures/overlay.html", (document) => {
   t.context.document = document;
 }));
 
-test.beforeEach('setup slider', t => {
+test.beforeEach("setup slider", t => {
   t.context.slider = new OverlayContentSlider({
-    content: '.content-slider__image',
-    overlay: '.overlay',
+    content: ".content-slider__image",
+    overlay: ".overlay",
     extractSliderElement: function() {
       return document.createElement("div");
     },

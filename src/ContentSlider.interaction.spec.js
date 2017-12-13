@@ -1,19 +1,19 @@
 // @tcomb
 
-import test from 'ava';
+import test from "ava";
 import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture, window} from "ava-browser-fixture";
 import sinon from "sinon";
 
-test.serial.beforeEach('setup fixture', t => Fixture("./src/fixtures/overlay.html", (document) => {
+test.serial.beforeEach("setup fixture", t => Fixture("./src/fixtures/overlay.html", (document) => {
     t.context.document = document;
     t.context.window   = window;
 }));
 
-test.serial.beforeEach('setup slider', t => {
+test.serial.beforeEach("setup slider", t => {
     t.context.slider = new OverlayContentSlider({
-        content: '.content-slider__image',
-        overlay: '.overlay',
+        content: ".content-slider__image",
+        overlay: ".overlay",
         extractSliderElement: function () {
             return document.createElement("div");
         },
@@ -25,7 +25,7 @@ test.serial.beforeEach('setup slider', t => {
     });
 });
 
-test.serial.beforeEach('setup history mock', t => {
+test.serial.beforeEach("setup history mock", t => {
     const {window} = t.context;
 
     t.context.pushStateSpy = sinon.stub(window.history, "pushState");

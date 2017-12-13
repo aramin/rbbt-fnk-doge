@@ -1,15 +1,15 @@
 // @flow
 
-import test from 'ava';
+import test from "ava";
 import {OverlayContentSlider} from "./ContentSlider";
 import {Fixture} from "ava-browser-fixture";
 
-test('is not a single', t => Fixture("./src/fixtures/overlay.html", (document) => {
+test("is not a single", t => Fixture("./src/fixtures/overlay.html", (document) => {
   // when:
   let
     options = {
-      content: '.test__image',
-      overlay: '.overlay',
+      content: ".test__image",
+      overlay: ".overlay",
       extractSliderElement: function() {},
       extractCaption: function() {},
       extractHashnavToken: function(_, index) {

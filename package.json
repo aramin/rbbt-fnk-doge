@@ -1,6 +1,6 @@
 {
   "name": "weltn24-doge",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "A Content Slider micro library",
   "main": "dist/ContentSlider.min.js",
   "typings": "./src/ContentSlider.d.ts",
@@ -9,7 +9,7 @@
     "build": "BABEL_ENV=production webpack -p",
     "test": "npm run lint && npm run coverage",
     "test-dev": "ava --watch",
-    "lint": "eslint src/ContentSlider.js",
+    "lint": "eslint src/*.js",
     "coverage": "nyc ava",
     "coverage-html-report": "nyc report --reporter=html",
     "release": "release-it"
