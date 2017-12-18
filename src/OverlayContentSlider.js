@@ -99,6 +99,14 @@ export default class OverlayContentSlider {
     reactivePanZoom: ReactivePanZoom;
 
     /**
+     * clickable trigger content
+     */
+    clickableTriggerContent: Array<{
+        element: Element;
+        onClick: Function
+    }>;
+
+    /**
      * ContentSlider constructor
      *
      * @constructor
@@ -162,6 +170,8 @@ export default class OverlayContentSlider {
             this.elements.elementsContainer.removeChild(this.elements.elementsContainer.firstChild);
         }
 
+        this._removeClickHandlerOfTriggerContent();
+
         // empty state
         this._refreshState();
 
@@ -172,17 +182,26 @@ export default class OverlayContentSlider {
             // reinit swiper
             this._initSwiper();
         }
+
+        this._makeTriggerContentClickable();
     }
 
-// ## SETUP
+    _removeClickHandlerOfTriggerContent() {
+        this.clickableTriggerContent.forEach(triggerContent => {
+            triggerContent.element.removeEventListener("click", triggerContent.onClick);
+        });
+    }
+
+    // ## SETUP
 
     _refreshState() {
-        this.elements       = {
+        this.elements                = {
             content: [],
             triggerContent: []
         };
-        this.captions       = {};
-        this.scrollPosition = [0, 0];
+        this.captions                = {};
+        this.scrollPosition          = [0, 0];
+        this.clickableTriggerContent = [];
     }
 
     /**
@@ -221,15 +240,7 @@ export default class OverlayContentSlider {
      * @private
      */
     _setupHandlers() {
-        this.elements.triggerContent.forEach((elem, elemIndex) => {
-            elem.addEventListener("click", (event) => {
-                this._addState();
-                this.openOverlay();
-                this.swiper.slideTo(elemIndex, 0);
-                this.swiper.hashnav.setHash();
-                this._updateCaption(elemIndex);
-            });
-        });
+        this._makeTriggerContentClickable();
 
         this.elements.closeIcon.addEventListener("click", () => {
             this.closeOverlay();
@@ -264,7 +275,6 @@ export default class OverlayContentSlider {
                     this.closeOverlay();
                 }
             }
-
         });
 
         // orientation change handler
@@ -280,6 +290,29 @@ export default class OverlayContentSlider {
         this.reactivePanZoom.on("zoom-inactive", () => {
             this.swiper.attachEvents();
             this.eventEmitter.emit("weltn24-doge:zoom-inactive");
+        });
+    }
+
+    /**
+     * make the trigger content (e.g. images) open the overlay on click
+     * @private
+     */
+    _makeTriggerContentClickable() {
+        this.elements.triggerContent.forEach((elem, elemIndex) => {
+            const showOverlay = (event) => {
+                this._addState();
+                this.openOverlay();
+                this.swiper.slideTo(elemIndex, 0);
+                this.swiper.hashnav.setHash();
+                this._updateCaption(elemIndex);
+            };
+
+            elem.addEventListener("click", showOverlay);
+
+            this.clickableTriggerContent.push({
+                element: elem,
+                onClick: showOverlay
+            });
         });
     }
 
@@ -429,8 +462,7 @@ export default class OverlayContentSlider {
      * @private
      * @static
      */
-    static
-    _queryByClassName(className: string): Element {
+    static _queryByClassName(className: string): Element {
         let elem = document.querySelector(`.${className}`);
 
         if (elem === null) {
@@ -479,8 +511,7 @@ export default class OverlayContentSlider {
      * @param {boolean} enable
      * @private
      */
-    static
-    _setDocumentScrollbar(enable: boolean) {
+    static _setDocumentScrollbar(enable: boolean) {
         if (enable) {
             document.documentElement.style.overflow = "auto";
         } else {
