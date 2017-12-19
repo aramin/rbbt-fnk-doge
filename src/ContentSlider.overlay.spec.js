@@ -83,7 +83,7 @@ test("[refresh] must remove click handlers of trigger content (e.g. images)", t 
     t.true(removeClickHandlerOfTriggerContentSpy.called);
 });
 
-test("[refresh] must re-init asynchronous added images", t => {
+test("check that swiper has been initialized correctly", t => {
     t.context.slider._initSwiper();
 
     t.is(t.context.slider.swiper.slides.length, 1, "Swiper has been initialized with one slide");
