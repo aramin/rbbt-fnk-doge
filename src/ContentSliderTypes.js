@@ -2,14 +2,14 @@
 
 export type QuerySelector = string;
 export type ClassName = string;
-export type ContentSliderEvent = "open"
-  | "close"
-  | "caption_toggle"
-  | "next"
-  | "prev"
-  | "init"
-  | "zoom-active"
-  | "zoom-inactive";
+export type ContentSliderEvent = "weltn24-doge:open"
+    | "weltn24-doge:close"
+    | "weltn24-doge:caption_toggle"
+    | "weltn24-doge:next"
+    | "weltn24-doge:prev"
+    | "weltn24-doge:init"
+    | "weltn24-doge:zoom-active"
+    | "weltn24-doge:zoom-inactive";
 
 /**
  * Content Slider Options

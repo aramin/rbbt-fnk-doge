@@ -39,4 +39,4 @@ jspm_packages
 
 # idea
 .idea/
-welt-content-slider.iml
+*.iml

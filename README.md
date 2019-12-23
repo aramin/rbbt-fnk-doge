@@ -48,7 +48,8 @@ npm install --save weltn24-doge
 
 # Dependency 
 
-- Swiper: http://idangero.us/swiper/
+- Swiper 3: http://idangero.us/swiper/
+- Swiper 3 API: https://github.com/nolimits4web/Swiper/blob/Swiper3/API.md
 - EventEmitter3: https://github.com/primus/eventemitter3
 
 # Usage
